@@ -87,6 +87,20 @@ SIGN=(data,status,callback)=>{
 			})
 		}
 		
+
+		if(status=='anotherInfo'){
+			const anotherInfo = `select * from user where id= ${data.id}`;
+			console.log(anotherInfo)
+			connection.query(anotherInfo,(err,results,fields)=>{
+				if(err){
+					callback(false)
+					return console.error('error signin'+err.message);
+				}
+				console.log('anotherInfo',results)
+				callback(results)
+			})
+		}
+		
 		// connection.end(()=>console.log("connection.end"));	
 
 	});

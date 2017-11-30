@@ -83,6 +83,8 @@ app.get('/information',User.info)
 app.post('/updateImg',User.updateImg)
 //修改信息
 app.post('/updateinfo',User.updateinfo)
+//查看其他人信息：
+app.get('/information/:id',User.anotherInfo)
 //评论
 app.post('/comment',User.comment)
 //回复评论

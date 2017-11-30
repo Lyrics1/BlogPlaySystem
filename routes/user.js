@@ -404,6 +404,33 @@ exports.updateinfo=function(req,res){
 	})
 }
 
+exports.anotherInfo = function(req,res){
+	var data = req.params;
+	console.log(data);
+		//IS YOUR 
+		if(req.session.userID == data.id){
+			res.redirect('/information')
+		}
+		USER.SIGN(data,"anotherInfo",callback=(results)=>{
+			if(results){
+				res.render('another',{
+					title:'个人设置',
+					world: '人说平凡可贵,却又嫌碌碌无为',
+					name:results[0].name,
+					introduce:results[0].introduce,
+					birthday:results[0].birthday,
+					sex:results[0].sex,
+					photo:results[0].img,
+					id:results[0].id
+				})
+			}else{
+				res.end();
+			}
+			
+			
+		})
+
+}
 //某一部电影的评论全部加载
 // exports.comments =function(req,res,next){
 // 	const movieID =req.params.id

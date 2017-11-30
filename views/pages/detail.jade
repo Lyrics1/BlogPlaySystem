@@ -32,7 +32,7 @@ block content
 		.content
 			each item in comment
 				.media.comment
-					a.pull-left(href='#')
+					a.pull-left(href='/information/#{item.userid}')
 						img.media-object.img-circle(src='../image/photo/#{item.userid}/#{item.img}')
 					.media-body
 						p.media-heading.show-username
