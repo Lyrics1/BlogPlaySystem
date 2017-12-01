@@ -1,11 +1,20 @@
 window.onload = function(){
+
+	const port="3300";
 	//blog
+	/****look****/
+	//设置为只读
+
+
+
 	//newADD
 	//存储在localstorage 里面
 	//清除localStorage
 	if($('.noteTitle').val()=='undefined'){
 		$('.noteTitle').val("")
 	}
+
+
 	localStorage.setItem('noteTitle',$('.noteTitle').val());
 	localStorage.setItem('notes',$('.notes').val());
 	function clearLocalStorage(...Item){
@@ -14,12 +23,18 @@ window.onload = function(){
 				localStorage.removeItem(e);
 			})			
 	}
+	$('#signout').click(function(){
+		$('.notes').val("");
+		$('.noteTitle').val("");
+		clearLocalStorage("notes","noteTitle")
+	})
 	//读取localStorage
 	$('.noteTitle').val(localStorage.getItem('noteTitle'));
 	$('.notes').val(localStorage.getItem('notes'));
 	//防止刷新内容消失
 	$('.noteTitle').keyup(function(){
 		$('.alert-tip').hide();
+		// console.log(marked($(this).val()));
 		localStorage.setItem('noteTitle',$(this).val());
 		$(this).text($(this).val())//解决input内容变化，但是dom没有变化
 
@@ -33,7 +48,15 @@ window.onload = function(){
 	$('.clear').click(function(){
 		$('.notes').val("");
 		$('.noteTitle').val("");
-		clearLocalStorage("notes","noteTitle")
+		clearLocalStorage("notes","noteTitle");
+		$.ajax({
+			url:`http://localhost:${port}/delnoteSession?d`,
+			type:"GET"
+		}).done(function(results){
+				if(results){
+					console.log(results)
+				}
+		})
 	})
 	//判断选择类型
 	var TYPE = 0;
@@ -61,54 +84,71 @@ window.onload = function(){
 	//临时保这个是相对于这个用户存储在session中，长期存储，提交后session 销毁
 	$('.notetempsave').click(function(){
 
+		if(isEmpty()){
+			$.ajax({
+				url:'http://localhost:3000/tempNote',
+				type:"POST",
+				data:{
+					title:$('.noteTitle').val(),
+					notes:$('.notes').val()
+				},
+				success:function(data){
+						$('.alert-tip').text(data);
+						$('.alert-tip').show("slow");
+				
+					console.log(data)
+				},
+				error:function(err){
+					console.log(err)
+				}
+			})
+		}
+	})
+
+	//isEmpty防止空内容提交
+	function isEmpty(){
 		$('.notes').val();
 		$('.noteTitle').val();
 		if($.trim($('.notes').val()).length==0 || $.trim($('.noteTitle').val()).length==0){
 			$('.alert-tip').text("写点东西,再保存吧 ！");
 			$('.alert-tip').show("slow");
-			return ;
+			return 0;
 		}
-		$.ajax({
-			url:'http://localhost:3000/tempNote',
-			type:"POST",
-			data:{
-				title:$('.noteTitle').val(),
-				notes:$('.notes').val()
-			},
-			success:function(data){
-					$('.alert-tip').text(data);
-					$('.alert-tip').show("slow");
-			
-				console.log(data)
-			},
-			error:function(err){
-				console.log(err)
-			}
-		})
-	})
+		return 1;
+	}
+
+	//判断如果输入信息为空则可以刷新
+
+
+
 
 
 	$('.notesave').click(function(){
 		$('.alert-tip').hide();
-		// console.log($('.notecontent').html())
-		var noteContent = $('.notecontent').html();
-		$.ajax({
-			url:'http://localhost:3000/show',
-			type:"POST",
-			data:{
-				content:noteContent,
-				type:TYPE
-			},
-			success:function(data){
-					$('.alert-tip').text(data);
-					$('.alert-tip').show("slow");
-			
-				console.log(data)
-			},
-			error:function(err){
-				console.log(err)
-			}
-		})
+		if(isEmpty()){
+			// console.log($('.notecontent').html())
+			var noteContent = $('.notecontent').text();
+				// console.log(noteContent)
+			// var T=$('.notes').val(marked($('.notes').val()));
+			console.log(noteContent)
+			$.ajax({
+				url:`http://localhost:${port}/show`,
+				type:"POST",
+				data:{
+					content:noteContent,
+					type:TYPE
+				},
+				success:function(data){
+					console.log(data)
+						window.location.href=`/newnote/${data.userID}/${data.notId}`
+				
+					console.log(data)
+				},
+				error:function(err){
+					console.log(err)
+				}
+			})
+		}
 
 	})
 
@@ -130,7 +170,7 @@ window.onload = function(){
 			return;
 		}else{
 			$.ajax({
-				url:"http://localhost:3000/searchInfo",
+				url:`http://localhost:${port}/searchInfo`,
 				type:"POST",
 				// dataType:"JSON",
 				data:data,
@@ -167,7 +207,7 @@ window.onload = function(){
 function jump(){
 
 		if(searchId!=-1){
-			window.location.href=`http://localhost:3000/movie/${searchId}`
+			window.location.href=`http://localhost:${port}/movie/${searchId}`
 		}
 		else{
 			location.reload();
@@ -189,7 +229,7 @@ function jump(){
 		//进行信息的正则验证
 		console.log(data);
 		$.ajax({
-			url:'http://localhost:3000/updateinfo',
+			url:`http://localhost:${port}/updateinfo`,
 			type:"POST",
 			dataType:"JSON",
 			data: data,
@@ -227,7 +267,7 @@ function jump(){
 		if(nameRegExp.test(name)&& passRegExp.test(pass)){
 			console.log("true");
 			$.ajax({
-				url: "http://localhost:3000/user/signup",
+				url: `http://localhost:${port}/user/signup`,
 				type:"POST",
 				dataType:"JSON",
 				data:{
@@ -280,7 +320,7 @@ function jump(){
 		if(nameRegExp.test(name)&& passRegExp.test(pass)){
 			console.log("true");
 			$.ajax({
-				url: "http://localhost:3000/user/signin",
+				url: `http://localhost:${port}/user/signin`,
 				type:"POST",
 				dataType:"JSON",
 				data:{
@@ -336,7 +376,7 @@ function jump(){
 		//使用jq 不要使用es6 容易出错
 		console.log($(this).attr("data-id"));
 		var ID = $(this).attr("data-id");
-		window.location.href="http://localhost:3000/admin/update/"+ID
+		window.location.href=`http://localhost:${port}/admin/update/`+ID
 	})
 	/*
 	删除
@@ -347,7 +387,7 @@ function jump(){
 		var tr = $('.item-id-'+id)
 		// console.log(id,tr)
 		$.ajax({
-			url :'http://localhost:3000/admin/list',
+			url :`http://localhost:${port}/admin/list`,
 			type:'POST',
 			dataType:"JSON",
 			data:{
@@ -411,7 +451,7 @@ function jump(){
 		if(content.length >5 && content.length <199){
 			//进行提交后台
 			$.ajax({
-				url:'http://localhost:3000/comment',
+				url:`http://localhost:${port}/comment`,
 				type:'POST',
 				dataType:"JSON",
 				data:{
@@ -473,7 +513,7 @@ function jump(){
 
 			//	进行回复提交并且提交成功后立刻显示评论结果
 					$.ajax({
-					url:'http://localhost:3000/receive',
+					url:`http://localhost:${port}/receive`,
 					type:'POST',
 					dataType:"JSON",
 					beforeSend:JudgeLogin,
@@ -511,7 +551,7 @@ function jump(){
 	// var judge = true;
 	$('.glyphicon-hand-right').click(function(e){
 
-		console.log($('.owner').html())
+		// console.log($('.owner').html())
 			if($('.owner').html()==undefined){
 			
 				$('.loginTip').show('slow')
@@ -524,7 +564,7 @@ function jump(){
 
 		//后台根据两个条件来进行判断 然后返回状态,根据状态进行点赞处理
 		$.ajax({
-			url:'http://localhost:3000/nice',
+			url:`http://localhost:${port}/nice`,
 			type:"POST",
 			dataType:"JSON",
 			beforeSend:JudgeLogin,
@@ -553,7 +593,7 @@ function jump(){
 
 	function JudgeLogin(){
 		$.ajax({
-			url: "http://localhost:3000/get",
+			url: `http://localhost:${port}/get`,
 			type: 'GET',
 			// dataType: 'JSON',
 			success:function(results){

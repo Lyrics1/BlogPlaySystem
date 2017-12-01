@@ -4,11 +4,12 @@ const path = require('path');
 const Comment = require('../mysql/note.js');
 var formidable = require('formidable');
 var fs = require('fs');
+var NOTE = require('../mysql/note.js');
 
 exports.add=(req,res)=>{
 	
 	var data = req.query;
-	console.log(data,"***");
+	console.log(data,"***---");
 
 	res.render('note',{
 		title:'Note',
@@ -36,6 +37,11 @@ exports.tempNote=(req,res)=>{
 	}
 }
 
+exports.delnoteSession=(req,res)=>{
+	 req.session.tempNoteTitle="";
+	  req.session.tempNotes ="";
+	  res.end()
+}
 exports.show=(req,res)=>{
 	//删除sessioNote
 	 req.session.tempNoteTitle=""
@@ -61,11 +67,41 @@ exports.show=(req,res)=>{
 				 	//将文件名存储进数据库
 
 				 	console.log(`${dir}/blog/${fileName}/${blogName}`,"((((")
-				 	res.send("发表成功")
+				 
+
+				 	//将文件名存储进数据库notes,type,userID
+					 	var Data ={
+							notes:blogName,
+							type:req.body.type,
+							userID:req.session.userID
+					 	}
+						NOTE.NOTE(Data,'add',callback=(results)=>{
+							console.log(results)
+							var REdata= {
+								userID:req.session.userID,
+								notId:results[0].id
+							}
+							res.send(REdata)
+						})
+
 				 	
 				 })
 				 if(status) {
-				 	res.send("发表成功")
+				 	//将文件名存储进数据库notes,type,userID
+				 	var Data ={
+						notes:blogName,
+						type:req.body.type,
+						userID:req.session.userID
+				 	}
+					NOTE.NOTE(Data,'add',callback=(results)=>{
+						// res.send("发表成功")
+						var REdata= {
+								userID:req.session.userID,
+								notId:results[0].id
+							}
+							res.send(REdata)
+					})
+				 	
 				 }
 			}else{
 				fs.mkdir(`${dir}/blog/${fileName}`,function(err){
@@ -78,16 +114,44 @@ exports.show=(req,res)=>{
 				 		status=false;
 				 		res.send("很抱歉 发表失败 ")
 				 	}
-				 	//将文件名存储进数据库
+				 	//将文件名存储进数据库notes,type,userID
+				 	var Data ={
+						notes:blogName,
+						type:req.body.type,
+						userID:req.session.userID
+				 	}
+					NOTE.NOTE(Data,'add',callback=(results)=>{
+						console.log(results)
+							// res.send("发表成功")
+							var REdata= {
+								userID:req.session.userID,
+								notId:results[0].id
+							}
+							res.send(REdata)
+					})
 
-				 	
-					
-				 	console.log(`${dir}/blog/${fileName}/${blogName}`,"((((")
-				 	res.send("发表成功")
+		
 				 	
 				 })
 					 if(status) {
-				 		res.send("发表成功")
+					 	console.log("++++++++++")
+					 	//将文件名存储进数据库notes,type,userID
+					 	var Data ={
+							notes:blogName,
+							type:req.body.type,
+							userID:req.session.userID
+					 	}
+					 	console.log(Data,"first--")
+						NOTE.NOTE(Data,'add',callback=(results)=>{
+							console.log(results)
+							var REdata= {
+								userID:req.session.userID,
+								notId:results[0].id
+							}
+							res.send(REdata)
+							// res.send("发表成功")
+						})
+				 		
 					}
 						
 				})
@@ -102,13 +166,19 @@ exports.show=(req,res)=>{
 
 exports.look=(req,res)=>{
 	
-	var data = req.query;
-	console.log(data,"***");
+	var data = req.params;
+	console.log(data,"***----");
+    
+
+	//开始异步读取文件
+
+	
 
 	res.render('look',{
 		title:'Note',
 		world:"别错过年少的疯狂，时光很匆忙"
 	})
+
 	// res.end()
 	// var name = req.body.username;
 	// var password = req.body.password;

@@ -7,7 +7,7 @@ const session = require('express-session');
 // const _ = require('underscore');//替换对象 没有用到
 // var querystring= require('querystring');//字符串转化
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3300
 const app = express();
 
 const server = require('http').Server(app);

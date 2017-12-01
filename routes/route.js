@@ -111,8 +111,10 @@ app.post('/show',Note.show);
 
 //查看发表的博客
 
-app.get('/newnote/:id',Note.look)
+app.get('/newnote/:id/:T',Note.look)
 
+//清除notsession:
+app.get('/delnoteSession',Note.delnoteSession)
 
 
 }

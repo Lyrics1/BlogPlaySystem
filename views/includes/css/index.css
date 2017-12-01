@@ -1,6 +1,9 @@
 /*@media screen (min-width: 768px) {*/
 @media screen and (min-width: 992px){
-
+	.notetempsave{
+		margin-left: 60%;
+		margin-top:20px;
+	}
 	.myImg a>img{
 		height: 8vw;
 		overflow: hidden;
@@ -120,6 +123,9 @@ textarea,.noteTitle {
 	top:2px;*/
 	width:200px ;
 	height: 180px;
+}
+.look input,.look textarea{
+	disabled:;
 }
 .showChange{
 	display: none;
@@ -380,7 +386,7 @@ margin-top:-20px;
 	margin-top:20px;
 }
 .notetempsave{
-	margin-left: 70%;
+	margin-left: 64%;
 	margin-top:20px;
 }
 .alert-info{
@@ -429,6 +435,10 @@ margin-top:-20px;
 	}
 	.content-input{
 		width: 90vw;
+	}
+	.notetempsave{
+		margin-left: 60%;
+		margin-top:20px;
 	}
 }
 /*}*/
