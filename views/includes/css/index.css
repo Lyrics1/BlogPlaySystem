@@ -44,6 +44,35 @@ input[type=radio],select option{
 }
 .iii label{
 	width:100%;
+
+}
+.alert-tip{
+	/*width: 20vw;*/
+	background: #f1b1e7;
+	text-align: center;
+	display: none;
+
+}
+textarea,.noteTitle {
+    outline: 0 none;
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+.notes{
+	width:100%;
+	 overflow:auto;
+ word-break:break-all;
+ overflow-y: hidden;
+ height: 30vw;
+
+}
+.choosetype{
+/*margin-right: 5%;*/
+}
+.type1,.type2,.type3,.type0,.mark{
+	width: 100%;
+	margin-top: 3px;
+	
 }
 .anothername{
 	font-size: 4rem;
@@ -342,9 +371,28 @@ margin-top:-20px;
 	font-size: 1rem;
 
 }
-
+.mark{
+	/*margin-bottom: 3%;*/
+	font-weight: 800;
+}
+.notesave{
+	/*margin-left: 80%;*/
+	margin-top:20px;
+}
+.notetempsave{
+	margin-left: 70%;
+	margin-top:20px;
+}
+.alert-info{
+	margin-top:5%;
+}
 
 @media screen and (max-width: 992px){
+	.type1,.type2,.type3,.type0,.mark{
+	width: auto;
+	margin-top: 3px;
+	
+}
 
 	.myImg a>img{
 		height: 12vw;

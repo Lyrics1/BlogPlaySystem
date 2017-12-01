@@ -71,3 +71,36 @@ foreign key(userid) references user(id)
 
 
 
+type : 0:随笔 /1：心情 /2.博客/3：日记
+//存储blog的数据库
+
+create table note
+(id int auto_increment primary key,
+ userID int comment '发表note的用户id',
+type int default 0 comment '0随笔 1心情 2博客 3日记',
+notes varchar(200) comment '存储URL',
+hidden int default 0 comment '0:其他人可见 1：自己可见',
+foreign key(userID) references user(id)
+)default charset utf8;
+
+//对于Note的评论和回复
+create table notecomment
+(id int auto_increment primary key comment'当前评论的id',
+  reviewid int comment'回复当前评论的评论的id',
+  noteID int comment'当前被评论的note的id',
+  userID int comment'当前评论者的id',
+  reuserID int comment'当前回复者的id',
+  nscontent varchar(300) comment'当前评论的内容',
+  recontent varchar(300) comment'当前回复者的内容',
+  noteNice int comment'当前评论的点赞数目',
+  foreign key(noteID) references note(id),
+  foreign key(userID) references user(id),
+  foreign key(reuserID) references user(id)
+)default charset utf8;
+
+  
+  
+  
+  
+
+

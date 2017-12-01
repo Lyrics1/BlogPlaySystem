@@ -8,6 +8,7 @@
     "bower": "^1.8.2",
     "cookie-parser": "^1.4.3",
     "crypto": "^1.0.1",
+    "easymysql": "^0.2.7",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "formidable": "^1.1.1",

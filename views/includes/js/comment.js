@@ -1,4 +1,117 @@
 window.onload = function(){
+	//blog
+	//newADD
+	//存储在localstorage 里面
+	//清除localStorage
+	if($('.noteTitle').val()=='undefined'){
+		$('.noteTitle').val("")
+	}
+	localStorage.setItem('noteTitle',$('.noteTitle').val());
+	localStorage.setItem('notes',$('.notes').val());
+	function clearLocalStorage(...Item){
+		$('.alert-tip').hide();
+			Item.forEach(function(e){
+				localStorage.removeItem(e);
+			})			
+	}
+	//读取localStorage
+	$('.noteTitle').val(localStorage.getItem('noteTitle'));
+	$('.notes').val(localStorage.getItem('notes'));
+	//防止刷新内容消失
+	$('.noteTitle').keyup(function(){
+		$('.alert-tip').hide();
+		localStorage.setItem('noteTitle',$(this).val());
+		$(this).text($(this).val())//解决input内容变化，但是dom没有变化
+
+	})
+	$('.notes').keyup(function(e){
+		$('.alert-tip').hide();
+		localStorage.setItem('notes',$(this).val());
+		$(this).text($(this).val())//解决input内容变化，但是dom没有变化
+	})
+	//清空内容
+	$('.clear').click(function(){
+		$('.notes').val("");
+		$('.noteTitle').val("");
+		clearLocalStorage("notes","noteTitle")
+	})
+	//判断选择类型
+	var TYPE = 0;
+	$('.type0').click(function(){
+		TYPE = 0;
+		console.log(TYPE)
+	});
+	$('.type1').click(function(){
+		TYPE = 1;
+		console.log(TYPE)
+	});
+	$('.type2').click(function(){
+		TYPE = 2;
+		console.log(TYPE)
+	});
+	$('.type3').click(function(){
+		TYPE = 3;
+		console.log(TYPE)
+	});
+	$('.Markdown').click(function(){
+		TYPE = 4;
+		console.log(TYPE)
+	});
+
+	//临时保这个是相对于这个用户存储在session中，长期存储，提交后session 销毁
+	$('.notetempsave').click(function(){
+
+		$('.notes').val();
+		$('.noteTitle').val();
+		if($.trim($('.notes').val()).length==0 || $.trim($('.noteTitle').val()).length==0){
+			$('.alert-tip').text("写点东西,再保存吧 ！");
+			$('.alert-tip').show("slow");
+			return ;
+		}
+		$.ajax({
+			url:'http://localhost:3000/tempNote',
+			type:"POST",
+			data:{
+				title:$('.noteTitle').val(),
+				notes:$('.notes').val()
+			},
+			success:function(data){
+					$('.alert-tip').text(data);
+					$('.alert-tip').show("slow");
+			
+				console.log(data)
+			},
+			error:function(err){
+				console.log(err)
+			}
+		})
+	})
+
+
+	$('.notesave').click(function(){
+		$('.alert-tip').hide();
+		// console.log($('.notecontent').html())
+		var noteContent = $('.notecontent').html();
+		$.ajax({
+			url:'http://localhost:3000/show',
+			type:"POST",
+			data:{
+				content:noteContent,
+				type:TYPE
+			},
+			success:function(data){
+					$('.alert-tip').text(data);
+					$('.alert-tip').show("slow");
+			
+				console.log(data)
+			},
+			error:function(err){
+				console.log(err)
+			}
+		})
+
+	})
+
 
 	$('.Fuser').click(function(){
 		window.location.href="/information"

@@ -8,6 +8,7 @@ const path = require('path');
 const User = require('./user');
 const Movie = require('./movie');
 const Index = require('./index');
+const Note = require('./note');
 
 
 module.exports =function(app) {
@@ -19,6 +20,8 @@ app.use("*",function(req,res,next){
 		app.locals.user = req.session.username;
 		app.locals.userImg =req.session.userImg;
 		app.locals.sex = req.session.sex;
+		app.locals.tempNoteTitle = req.session.tempNoteTitle
+		app.locals.tempNotes = req.session.tempNotes 
 	}
 	return next();//跳过
 	
@@ -74,6 +77,9 @@ app.get('/logout',(req,res)=>{
 	delete req.session.userImg;
 	delete app.locals.user ;//如果不删除 app.licals.user 页面是不会改变的
 	delete app.locals.userImg;
+	delete	app.locals.tempNoteTitle 
+	delete	app.locals.tempNotes 
+
 
 	res.redirect('/');
 })
@@ -91,5 +97,22 @@ app.post('/comment',User.comment)
 app.post('/receive',User.receive)
 //点赞
 app.post('/nice',User.nice)
+
+//blog
+
+//发表note
+app.get('/newnote',Note.add)
+
+//临时保存
+app.post('/tempNote',Note.tempNote)
+
+//发表
+app.post('/show',Note.show);
+
+//查看发表的博客
+
+app.get('/newnote/:id',Note.look)
+
+
 
 }

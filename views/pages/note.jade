@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+	.container
+		.row
+			div.showInfo
+				div.col-md-2.choosetype
+					input.btn.btn-info.type0(type="button",value="随笔",data-id="0")
+					input.btn.btn-primary.type1(type="button",value="心情",data-id="1")
+					input.btn.btn-success.type2(type="button",value="博客",data-id="2")
+					input.btn.btn-danger.type3(type="button",value="日记",data-id="3")
+					input.btn.btn-default.mark.Markdown(type="button",value="Markdown",data-id="3")
+					.alert.alert-info(role='alert') 默认类型是随笔, 正文是markdown格式
+					.alert.alert-success.alert-tip(role='alert') 保存成功
+					input.btn.btn-danger.mark.clear(type="button",value="清空内容")
+				div.col-md-10
+					div.notecontent
+						.input-group.input-group-lg
+							span#sizing-addon1.input-group-addon 标题 ：
+							input.form-control.noteTitle(type='text', placeholder="请输入标题", aria-describedby='sizing-addon1',value="#{tempNoteTitle}")	 
+						textarea.notes(placeholder="点击这里，记生活",onpropertychange="this.scrollHeight>30+'vw' ? this.style.height=this.style.height +'px':this.style.height = this.scrollHeight + 'px';", oninput="this.scrollHeight>30+'vw' ? this.style.height=this.style.height +'px':this.style.height = this.scrollHeight + 'px';",value="#{tempNotes}")	#{tempNotes}
+				input.btn.btn-info.notetempsave(type="button",value="临时保存") 
+				input.btn.btn-info.notesave(type="button",value="发表")
+
+
+
+
+
