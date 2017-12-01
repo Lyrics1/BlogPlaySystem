@@ -86,7 +86,7 @@ window.onload = function(){
 
 		if(isEmpty()){
 			$.ajax({
-				url:'http://localhost:3000/tempNote',
+				url:`http://localhost:${port}/tempNote`,
 				type:"POST",
 				data:{
 					title:$('.noteTitle').val(),
@@ -127,7 +127,7 @@ window.onload = function(){
 		$('.alert-tip').hide();
 		if(isEmpty()){
 			// console.log($('.notecontent').html())
-			var noteContent = $('.notecontent').text();
+			var noteContent = $('.notecontent').html();
 				// console.log(noteContent)
 			// var T=$('.notes').val(marked($('.notes').val()));
 			console.log(noteContent)

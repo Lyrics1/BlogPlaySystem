@@ -28,10 +28,18 @@ NOTE=(data,status,callback)=>{
 			})
 		}
 
-
-
-
-
+		if(status=="findFile"){
+			var findFileSql =`select notes from note where id ="${data.T}"`;
+			// console.log(findFileSql)
+				connect.query(findFileSql,function(err,result){
+					if(err){
+						callback(false);
+						return;
+						console.log("失败")
+					}
+					callback(result);
+				})							
+		}
 	})
 }
 module.exports.NOTE = NOTE;

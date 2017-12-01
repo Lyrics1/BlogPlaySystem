@@ -59,7 +59,7 @@ exports.show=(req,res)=>{
 		console.log(`${dir}/blog/${fileName}/${blogName}`)
 		fs.exists(`${dir}/blog/${fileName}`,function(exists){
 			if(exists){
-				 fs.writeFileSync(`${dir}/blog/${fileName}/${blogName}`,data,function(err){
+				 fs.writeFile(`${dir}/blog/${fileName}/${blogName}`,data,function(err){
 				 	if(err){
 				 		status=false;
 				 		res.send("很抱歉 发表失败 ")
@@ -166,22 +166,31 @@ exports.show=(req,res)=>{
 
 exports.look=(req,res)=>{
 	
-	var data = req.params;
-	console.log(data,"***----");
-    
+	var Data = req.params;
+	console.log(Data,"***----");
+    //先开始从数据库中得到文件名
+    NOTE.NOTE(Data,'findFile',callback=(results)=>{
+    	console.log(results,"OO");
+   //  	if(results.length!=0){
+	  //   	var fileName=results[0].notes;
+	  //   	// 开始异步读取文件
+			// var readDir = path.resolve(__dirname,'..');
+			// var ReadPath = `${readDir}/blog/${Data.id}/${fileName}`
+			// console.log(ReadPath);
+			// // fs.readFile(ReadPath,function(err,data){
+			// // 	if(err){
+			// // 		console.log(err)
+			// // 		return;
+			// // 	}
+			// // 		console.log(data)
+			// // 		// res.end();
+			// // })
+   //  	}else{
+   //  		// res.redirect('/')
+   //  	}
+    	
 
-	//开始异步读取文件
-
-	
-
-	res.render('look',{
-		title:'Note',
-		world:"别错过年少的疯狂，时光很匆忙"
-	})
-
-	// res.end()
-	// var name = req.body.username;
-	// var password = req.body.password;
+    })
 	
 }
 
