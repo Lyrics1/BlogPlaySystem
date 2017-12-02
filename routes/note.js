@@ -152,7 +152,13 @@ exports.show=(req,res)=>{
 exports.look=(req,res)=>{
 	
 	var Data = req.params;
-	console.log(Data,"***----");
+	console.log(req.session.userID);
+	Data.isYou=1;
+	//判断是否是本人
+	if(Data.id!=req.session.userID){
+		Data.isYou=0;
+		console.log("not**")
+	}
     //先开始从数据库中得到文件名
     NOTE.NOTE(Data,'findFile',callback=(results)=>{
     	console.log(results,"OO");
@@ -163,22 +169,29 @@ exports.look=(req,res)=>{
 			var readDir = path.resolve(__dirname,'..');
 			var ReadPath = `${readDir}/blog/${Data.id}/${fileName}`
 			console.log(ReadPath);
-			fs.readFile(ReadPath,'utf-8',function(err,DATA){
-				if(err){
-					console.log(err)
-					return;
-				}
-					console.log(marked(DATA))
-					// DATA =	marked(DATA)
-					// res.send(DATA)
-					res.render('look',{
-						title:'Note',
-						NoteTitle:NoteTitle,
-						world:"别错过年少的疯狂，时光很匆忙",
-						content:DATA
+			fs.exists(ReadPath,function(exists){
+				if(exists){
+						fs.readFile(ReadPath,'utf-8',function(err,DATA){
+						if(err){
+							console.log(err)
+							return;
+						}
+							// console.log(marked(DATA))
+							// DATA =	marked(DATA)
+							// res.send(DATA)
+							res.render('look',{
+								title:'Note',
+								NoteTitle:NoteTitle,
+								world:"别错过年少的疯狂，时光很匆忙",
+								content:DATA
+							})
+							// res.end();
 					})
-					// res.end();
+					}else{
+						res.redirect('/newnote')
+					}
 			})
+		
     	}else{
     		res.redirect('/newnote')
     	}

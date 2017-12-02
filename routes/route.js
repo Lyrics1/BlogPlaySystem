@@ -73,6 +73,7 @@ app.post('/user/signin',User.signin)
 app.get('/logout',(req,res)=>{
 	// console.log("LO4")
 	delete req.session.username;
+	delete req.session.userID;
 	delete req.session.password;
 	delete req.session.userImg;
 	delete app.locals.user ;//如果不删除 app.licals.user 页面是不会改变的

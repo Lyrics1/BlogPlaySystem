@@ -29,8 +29,14 @@ NOTE=(data,status,callback)=>{
 		}
 
 		if(status=="findFile"){
-			var findFileSql =`select notes,noteTitle from note where id ="${data.T}"`;
-			// console.log(findFileSql)
+			var findFileSql;
+			if(data.isYou==1){
+				 findFileSql =`select notes,noteTitle from note where id ="${data.T}"`;
+			}else{
+				findFileSql =`select notes,noteTitle from note where id ="${data.T}" and type != 3`;
+			}
+			
+			console.log(findFileSql)
 
 				connect.query(findFileSql,function(err,result){
 					if(err){
