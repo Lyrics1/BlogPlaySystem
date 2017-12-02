@@ -201,3 +201,22 @@ exports.look=(req,res)=>{
 	
 }
 
+exports.allnotes=(req,res)=>{
+	
+	var data = req.query;
+	console.log(data,"***---");
+	data={
+		id:req.session.userID
+	}
+	NOTE.NOTE(data,"allnotes",callback=(results)=>{
+		res.render('allNotes',{
+			title:'Notes',
+			world:"希望你往后路途别灰心,因为这世界上总有和你合拍的人 ",
+			notes:results
+		})
+	})
+	
+	
+	
+}
+

@@ -117,5 +117,8 @@ app.get('/newnote/:id/:T',Note.look)
 //清除notsession:
 app.get('/delnoteSession',Note.delnoteSession)
 
+//查看所有用户的博客(对其他人可见的)
+app.get('/allnotes',Note.allnotes)
+
 
 }

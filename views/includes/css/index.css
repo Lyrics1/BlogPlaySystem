@@ -58,8 +58,26 @@ input[type=radio],select option{
 }
 .notecontent textarea,.look textarea{
 	font-size:2.5rem;
-	padding-left:50px;
+	padding-left:20px;
 	  /*text-indent:50px;*/
+}
+.allnotes{
+	border-bottom:1px dotted #c3c2c2; 
+	height: 80px;
+	line-height: 2rem;
+	padding: 30px 3% 2% 3%;
+	word-wrap: break-word;
+}
+.alltitle{
+	font-size: 2rem;
+	font-weight: 800;
+	word-wrap: break-word;
+
+}
+.github,.note,.react{
+	width: 50px!important;
+	height: 50px!important;
+	margin-top: 50px;
 }
 textarea,.noteTitle {
     outline: 0 none;

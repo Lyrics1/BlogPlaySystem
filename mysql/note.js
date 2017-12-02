@@ -47,6 +47,25 @@ NOTE=(data,status,callback)=>{
 					callback(result);
 				})							
 		}
+		if(status=="allnotes"){
+			var findAllSql;
+			if(data.isYou==1){
+				 findAllSql =`select * from note where type !=3 union select * from note where userID=${data.id} limit 8`;
+			}else{
+				findAllSql =`select * from note where  type != 3 limit 8`;
+			}
+			
+			console.log(findAllSql)
+
+				connect.query(findAllSql,function(err,result){
+					if(err){
+						callback(false);
+						return;
+						console.log("失败")
+					}
+					callback(result);
+				})							
+		}
 	})
 }
 module.exports.NOTE = NOTE;
