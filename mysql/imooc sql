@@ -79,7 +79,7 @@ create table note
  userID int comment '发表note的用户id',
 type int default 0 comment '0随笔 1心情 2博客 3日记',
 notes varchar(200) comment '存储URL',
-hidden int default 0 comment '0:其他人可见 1：自己可见',
+noteTitle varchar(100),
 foreign key(userID) references user(id)
 )default charset utf8;
 

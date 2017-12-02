@@ -56,6 +56,11 @@ input[type=radio],select option{
 	display: none;
 
 }
+.notecontent textarea,.look textarea{
+	font-size:2.5rem;
+	padding-left:50px;
+	  /*text-indent:50px;*/
+}
 textarea,.noteTitle {
     outline: 0 none;
     border-color: rgba(82, 168, 236, 0.8);
@@ -124,8 +129,20 @@ textarea,.noteTitle {
 	width:200px ;
 	height: 180px;
 }
-.look input,.look textarea{
-	disabled:;
+/*.look textarea{
+	outline: 0 none;
+    border-color: rgba(0, 10, 236, 0.8)!important;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}*/
+.look .Title{
+	text-align: center;
+	font-weight: 800
+}
+.dsearch{
+	margin-top:2%;
+}
+.lookcontent{
+
 }
 .showChange{
 	display: none;

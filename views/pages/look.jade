@@ -3,9 +3,12 @@ extends ../layout
 block content
 	.container
 		.row
-			div.showInfo
+			div.showInfo.look
 				div.col-md-12
 					div.notecontent.look
+						h1.Title #{NoteTitle}
+					div.lookcontent
+					#{content}
 				
 
 

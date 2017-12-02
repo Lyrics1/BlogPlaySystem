@@ -3,10 +3,12 @@ window.onload = function(){
 	const port="3300";
 	//blog
 	/****look****/
+	// $('.lookcontent').html(marked($('.lookcontent').text()))
 	//设置为只读
-
-
-
+	$('.look .noteTitle').css('display',"none")
+	$('.look .notes').eq(1).css('display',"none")
+	$('.look .notes').eq(0).attr('readonly',"true")
+	$('.look .Ti').css('display',"none")
 	//newADD
 	//存储在localstorage 里面
 	//清除localStorage
@@ -127,16 +129,17 @@ window.onload = function(){
 		$('.alert-tip').hide();
 		if(isEmpty()){
 			// console.log($('.notecontent').html())
-			var noteContent = $('.notecontent').html();
-				// console.log(noteContent)
-			// var T=$('.notes').val(marked($('.notes').val()));
-			console.log(noteContent)
+			var noteTitle = $('.noteTitle').val();
+				console.log(noteTitle)
+			var noteContent=$('.notecontent').html();
+			console.log( noteContent)
 			$.ajax({
 				url:`http://localhost:${port}/show`,
 				type:"POST",
 				data:{
 					content:noteContent,
-					type:TYPE
+					type:TYPE,
+					Title:noteTitle
 				},
 				success:function(data){
 					console.log(data)

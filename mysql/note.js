@@ -6,7 +6,7 @@ NOTE=(data,status,callback)=>{
 
 		if(status=="add"){
 
-			const NoteSql = `insert into note(notes,type,userID) values("${data.notes}",${data.type},${data.userID})`;
+			const NoteSql = `insert into note(notes,type,userID,noteTitle) values("${data.notes}",${data.type},${data.userID},"${data.Title}")`;
 			
 			// console.log(data,status,NoteSql)
 			connect.query(NoteSql,function(err,result){
@@ -29,8 +29,9 @@ NOTE=(data,status,callback)=>{
 		}
 
 		if(status=="findFile"){
-			var findFileSql =`select notes from note where id ="${data.T}"`;
+			var findFileSql =`select notes,noteTitle from note where id ="${data.T}"`;
 			// console.log(findFileSql)
+
 				connect.query(findFileSql,function(err,result){
 					if(err){
 						callback(false);

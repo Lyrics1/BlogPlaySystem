@@ -1,0 +1,22 @@
+
+              <div class="input-group input-group-lg"><span id="sizing-addon1" class="input-group-addon Ti">标题 ：</span>
+                <input type="text" placeholder="请输入标题" aria-describedby="sizing-addon1" value="" class="form-control noteTitle">
+              </div>
+              <textarea placeholder="点击这里，记生活" onpropertychange="this.scrollHeight>30+'vw' ? this.style.height=this.style.height +'px':this.style.height = this.scrollHeight + 'px';" oninput="this.scrollHeight>30+'vw' ? this.style.height=this.style.height +'px':this.style.height = this.scrollHeight + 'px';" value="" class="notes" style="height: 739px;">ext-indent 属性规定文本块中首行文本的缩进。
+注释：允许使用负值。如果使用负值，那么首行会被缩进到左边。
+注意：在 CSS 2.1 之前，text-indent 总是继承计算值，而不是声明值。
+说明
+用于定义块级元素中第一个内容行的缩进。这最常用于建立一个“标签页”效果。允许指定负值，这会产生一种“悬挂缩进”的效果。
+默认值：	not specified
+继承性：	yes
+版本：	CSS1
+JavaScript 语法：	object.style.textIndent="50px"
+可能的值
+值	描述
+length	定义固定的缩进。默认值：0。
+%	定义基于父元素宽度的百分比的缩进。
+inherit	规定应该从父元素继承 text-indent 属性的值。
+TIY 实例
+缩进文本
+本例演示如何缩进文本首行。</textarea>
+            

@@ -5,6 +5,7 @@ const Comment = require('../mysql/note.js');
 var formidable = require('formidable');
 var fs = require('fs');
 var NOTE = require('../mysql/note.js');
+const marked = require('marked');
 
 exports.add=(req,res)=>{
 	
@@ -63,41 +64,23 @@ exports.show=(req,res)=>{
 				 	if(err){
 				 		status=false;
 				 		res.send("很抱歉 发表失败 ")
-				 	}
-				 	//将文件名存储进数据库
-
-				 	console.log(`${dir}/blog/${fileName}/${blogName}`,"((((")
-				 
-
-				 	//将文件名存储进数据库notes,type,userID
-					 	var Data ={
-							notes:blogName,
-							type:req.body.type,
-							userID:req.session.userID
-					 	}
-						NOTE.NOTE(Data,'add',callback=(results)=>{
-							console.log(results)
-							var REdata= {
-								userID:req.session.userID,
-								notId:results[0].id
-							}
-							res.send(REdata)
-						})
-
-				 	
+				 	}				 	
 				 })
 				 if(status) {
 				 	//将文件名存储进数据库notes,type,userID
 				 	var Data ={
 						notes:blogName,
 						type:req.body.type,
-						userID:req.session.userID
+						userID:req.session.userID,
+						Title:req.body.Title
 				 	}
 					NOTE.NOTE(Data,'add',callback=(results)=>{
 						// res.send("发表成功")
+						console.log(results,"222")
 						var REdata= {
 								userID:req.session.userID,
-								notId:results[0].id
+								notId:results[0].id,
+
 							}
 							res.send(REdata)
 					})
@@ -118,10 +101,12 @@ exports.show=(req,res)=>{
 				 	var Data ={
 						notes:blogName,
 						type:req.body.type,
-						userID:req.session.userID
+						userID:req.session.userID,
+						Title:req.body.Title
 				 	}
 					NOTE.NOTE(Data,'add',callback=(results)=>{
 						console.log(results)
+						console.log(results,"333")
 							// res.send("发表成功")
 							var REdata= {
 								userID:req.session.userID,
@@ -134,22 +119,22 @@ exports.show=(req,res)=>{
 				 	
 				 })
 					 if(status) {
-					 	console.log("++++++++++")
 					 	//将文件名存储进数据库notes,type,userID
 					 	var Data ={
 							notes:blogName,
 							type:req.body.type,
-							userID:req.session.userID
+							userID:req.session.userID,
+							Title:req.body.Title
 					 	}
 					 	console.log(Data,"first--")
 						NOTE.NOTE(Data,'add',callback=(results)=>{
+							console.log(results,"444")
 							console.log(results)
 							var REdata= {
 								userID:req.session.userID,
 								notId:results[0].id
 							}
 							res.send(REdata)
-							// res.send("发表成功")
 						})
 				 		
 					}
@@ -171,23 +156,32 @@ exports.look=(req,res)=>{
     //先开始从数据库中得到文件名
     NOTE.NOTE(Data,'findFile',callback=(results)=>{
     	console.log(results,"OO");
-   //  	if(results.length!=0){
-	  //   	var fileName=results[0].notes;
-	  //   	// 开始异步读取文件
-			// var readDir = path.resolve(__dirname,'..');
-			// var ReadPath = `${readDir}/blog/${Data.id}/${fileName}`
-			// console.log(ReadPath);
-			// // fs.readFile(ReadPath,function(err,data){
-			// // 	if(err){
-			// // 		console.log(err)
-			// // 		return;
-			// // 	}
-			// // 		console.log(data)
-			// // 		// res.end();
-			// // })
-   //  	}else{
-   //  		// res.redirect('/')
-   //  	}
+    	if(results.length!=0){
+	    	var fileName=results[0].notes;
+	    	var NoteTitle = results[0].noteTitle;
+	    	// 开始异步读取文件
+			var readDir = path.resolve(__dirname,'..');
+			var ReadPath = `${readDir}/blog/${Data.id}/${fileName}`
+			console.log(ReadPath);
+			fs.readFile(ReadPath,'utf-8',function(err,DATA){
+				if(err){
+					console.log(err)
+					return;
+				}
+					console.log(marked(DATA))
+					// DATA =	marked(DATA)
+					// res.send(DATA)
+					res.render('look',{
+						title:'Note',
+						NoteTitle:NoteTitle,
+						world:"别错过年少的疯狂，时光很匆忙",
+						content:DATA
+					})
+					// res.end();
+			})
+    	}else{
+    		res.redirect('/newnote')
+    	}
     	
 
     })

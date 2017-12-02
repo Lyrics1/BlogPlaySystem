@@ -16,11 +16,12 @@ block content
 				div.col-md-10
 					div.notecontent
 						.input-group.input-group-lg
-							span#sizing-addon1.input-group-addon 标题 ：
+							span#sizing-addon1.input-group-addon.Ti 标题 ：
 							input.form-control.noteTitle(type='text', placeholder="请输入标题", aria-describedby='sizing-addon1',value="#{tempNoteTitle}")	 
 						textarea.notes(placeholder="点击这里，记生活",onpropertychange="this.scrollHeight>30+'vw' ? this.style.height=this.style.height +'px':this.style.height = this.scrollHeight + 'px';", oninput="this.scrollHeight>30+'vw' ? this.style.height=this.style.height +'px':this.style.height = this.scrollHeight + 'px';",value="#{tempNotes}")	#{tempNotes}
 				input.btn.btn-info.notetempsave(type="button",value="临时保存") 
 				input.btn.btn-info.notesave(type="button",value="发表")
+					
 
 
 
