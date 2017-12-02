@@ -7,7 +7,7 @@ block content
 				div.col-md-1
 					a(href="https://github.com/Lyrics1/MovieSystem")
 						img.img-circle.github(src="../image/icon/github.png")
-					a(href="newnote")
+					a(href="/newnote")
 						img.img-circle.note(src="../image/icon/note.png")
 					a(href="")
 						img.img-circle.react(src="../image/icon/react.png")
@@ -15,6 +15,8 @@ block content
 					each item in notes
 						div.allnotes
 							lable
+								//- a.pull-left(href='/information/#{item.userid}')
+								//- img.media-object.img-circle(src='../image/photo/#{item.userID}/#{item.img}')
 								a(href="/newnote/#{item.userID}/#{item.id}")
 									span.alltitle #{item.noteTitle} 
 					nav(aria-label='...')

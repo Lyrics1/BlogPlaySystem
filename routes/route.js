@@ -18,7 +18,7 @@ app.use("*",function(req,res,next){
 	// var user = req.session.username;
 	if(req.session.username){
 		app.locals.user = req.session.username;
-		app.locals.userImg =req.session.userImg;
+		app.locals.userImg =`../${req.session.userImg}`;
 		app.locals.sex = req.session.sex;
 		app.locals.tempNoteTitle = req.session.tempNoteTitle
 		app.locals.tempNotes = req.session.tempNotes 

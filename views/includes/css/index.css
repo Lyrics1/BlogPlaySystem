@@ -27,7 +27,7 @@
 		word-wrap: break-word;	float: left;
 		color: #666;
 	}
-	.textArea{
+	.textArea,.articalArea{
 		width: 45vw;
 		float: left;
 		height:13vh;
@@ -306,7 +306,7 @@ margin-top:-20px;
 	margin-bottom: 6vh;
 	/*height:;*/
 }
-.content-submit{
+.content-submit,.artical-submit {
 	margin-top: 5vh;
 	margin-left: 2vw;
 }
@@ -466,7 +466,7 @@ margin-top:-20px;
 		color: #666;
 
 	}
-	.textArea{
+	.textArea,.articalArea{
 		width: 72vw;
 		float: left;
 		height:13vh;

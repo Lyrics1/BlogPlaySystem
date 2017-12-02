@@ -99,6 +99,9 @@ create table notecomment
 )default charset utf8;
 
   
+
+
+ findAllSql =`select note.id,note.userID,note.noteTitle,user.img from note,user where note.id =any(select id from note where type !=3 union select id from note where userID=${data.id} limit ${data.parper*8} ,${data.parper*8+8})`;
   
   
   

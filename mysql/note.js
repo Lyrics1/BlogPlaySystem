@@ -49,13 +49,13 @@ NOTE=(data,status,callback)=>{
 		}
 		if(status=="allnotes"){
 			var findAllSql;
-			if(data.isYou==1){
+			if(data.id!=undefined){
 				 findAllSql =`select * from note where type !=3 union select * from note where userID=${data.id} limit ${data.parper*8} ,${data.parper*8+8}`;
 			}else{
 				findAllSql =`select * from note where  type != 3 limit  ${data.parper*8} ,${data.parper*8+8}`;
 			}
 			
-			console.log(findAllSql)
+			console.log(findAllSql,"))",data.id)
 
 				connect.query(findAllSql,function(err,result){
 					if(err){

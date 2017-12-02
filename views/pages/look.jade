@@ -9,6 +9,12 @@ block content
 						h1.Title #{NoteTitle}
 					div.lookcontent
 					#{content}
+						.artical
+							if user
+								h3 抱歉啊,我之后再写评论功能
+								textarea.articalArea(rows='3',placeholder="请输入5个字以上评论") 
+								button.btn.btn-primary.artical-submit 发送
+							else
 				
 
 

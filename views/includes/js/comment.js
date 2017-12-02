@@ -4,10 +4,13 @@ window.onload = function(){
 
 	//blog
 	/****look****/
+	//设置博客评论
+	//1： 发表评论
+	
+
+
 	//查询上一页，下一页：
 	var RepreNext = /\/\d+$/;
-
-
 	$('.pre').click(function(){
 
 		var path = window.location.href;
@@ -22,9 +25,6 @@ window.onload = function(){
 		paper=parseInt(paper)
 		preNext("next",paper+1)
 	})
-
-
-
 	function preNext(PN,number){
 		if(number<0){
 			return;
@@ -628,7 +628,7 @@ function jump(){
 	})
 	
 	//回复和评论功能都需要判断是否登录；
-
+	
 	function JudgeLogin(){
 		$.ajax({
 			url: `http://localhost:${port}/get`,
