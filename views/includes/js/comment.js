@@ -1,9 +1,44 @@
 window.onload = function(){
 
 	const port="3300";
+
 	//blog
 	/****look****/
-	// $('.lookcontent').html(marked($('.lookcontent').text()))
+	//查询上一页，下一页：
+	var RepreNext = /\/\d+$/;
+
+
+	$('.pre').click(function(){
+
+		var path = window.location.href;
+		paper=(path.match(RepreNext)[0]).substr(1)
+		paper=parseInt(paper)
+		preNext("pre",paper-1)
+
+	})
+	$('.next').click(function(){
+		var path = window.location.href;
+		paper=(path.match(RepreNext)[0]).substr(1)
+		paper=parseInt(paper)
+		preNext("next",paper+1)
+	})
+
+
+
+	function preNext(PN,number){
+		if(number<0){
+			return;
+		}else{
+			$.ajax({
+				url:`http://localhost:${port}/allNotes/${number}`,
+				type:"GET"
+			}).done(function(data){
+				// console.log(number,window.location.href)
+				window.location.href=`/allNotes/${number}`
+			})
+		}
+		
+	}
 	//设置为只读
 	$('.look .noteTitle').css('display',"none")
 	$('.look .notes').eq(1).css('display',"none")

@@ -74,6 +74,9 @@ input[type=radio],select option{
 	word-wrap: break-word;
 
 }
+a{
+	cursor: pointer;
+}
 .github,.note,.react{
 	width: 50px!important;
 	height: 50px!important;

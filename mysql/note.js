@@ -50,9 +50,9 @@ NOTE=(data,status,callback)=>{
 		if(status=="allnotes"){
 			var findAllSql;
 			if(data.isYou==1){
-				 findAllSql =`select * from note where type !=3 union select * from note where userID=${data.id} limit 8`;
+				 findAllSql =`select * from note where type !=3 union select * from note where userID=${data.id} limit ${data.parper*8} ,${data.parper*8+8}`;
 			}else{
-				findAllSql =`select * from note where  type != 3 limit 8`;
+				findAllSql =`select * from note where  type != 3 limit  ${data.parper*8} ,${data.parper*8+8}`;
 			}
 			
 			console.log(findAllSql)

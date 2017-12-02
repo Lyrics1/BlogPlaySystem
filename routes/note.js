@@ -7,6 +7,7 @@ var fs = require('fs');
 var NOTE = require('../mysql/note.js');
 const marked = require('marked');
 
+
 exports.add=(req,res)=>{
 	
 	var data = req.query;
@@ -202,11 +203,15 @@ exports.look=(req,res)=>{
 }
 
 exports.allnotes=(req,res)=>{
+	console.log(req.params);
+
 	
-	var data = req.query;
+	var data = req.params;
+
 	console.log(data,"***---");
 	data={
-		id:req.session.userID
+		id:req.session.userID,
+		parper:data.id
 	}
 	NOTE.NOTE(data,"allnotes",callback=(results)=>{
 		res.render('allNotes',{
@@ -219,4 +224,18 @@ exports.allnotes=(req,res)=>{
 	
 	
 }
+
+// // exports.pre=(req,res)=>{
+// // 	console.log()
+// // 	NOTE.NOTE(data,"pre",callback=(results)=>{
+// // 		res.render('allNotes',{
+// // 			title:'Notes',
+// // 			world:" ",
+// // 			notes:{}
+// // 		})
+// // 	})
+	
+	
+	
+// }
 
