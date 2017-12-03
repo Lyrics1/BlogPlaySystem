@@ -16,6 +16,9 @@ COMMENT=(data,status,callback)=>{
 				if(err){
 					return console.error('error signUP'+err.message);
 				}
+				connection.end(function(){
+					console.log("++++connection.end+++++")
+				});
 				callback(true);
 			})
 		}
@@ -27,8 +30,14 @@ COMMENT=(data,status,callback)=>{
 					return console.error('error signin'+err.message);
 				}
 				if(results.length!=0){
+					connection.end(function(){
+						console.log("++++connection.end+++++")
+					});
 					callback(results);
 				}else{
+					connection.end(function(){
+						console.log("++++connection.end+++++")
+					});
 					callback(false);
 				}
 			})
@@ -41,6 +50,9 @@ COMMENT=(data,status,callback)=>{
 				if(err){
 					return console.error('error signin'+err.message);
 				}
+					connection.end(function(){
+						console.log("++++connection.end+++++")
+					});
 					callback(results);
 				
 			})
@@ -53,6 +65,9 @@ COMMENT=(data,status,callback)=>{
 				if(err){
 					return console.error('error signin'+err.message);
 				}
+				connection.end(function(){
+					console.log("++++connection.end+++++")
+				});
 				callback(results);
 				
 			})
@@ -74,6 +89,9 @@ COMMENT=(data,status,callback)=>{
 				// 	}
 				// 	callback(results)
 				// })
+				connection.end(function(){
+					console.log("++++connection.end+++++")
+				});
 
 				callback(true);
 			})
@@ -103,6 +121,9 @@ COMMENT=(data,status,callback)=>{
 							if(err){
 								return console.error('in'+err.message);
 							}
+							connection.end(function(){
+								console.log("++++connection.end+++++")
+							});
 							callback(true);
 						})
 						
@@ -122,6 +143,9 @@ COMMENT=(data,status,callback)=>{
 							if(err){
 								return console.error('update'+err.message);
 							}
+							connection.end(function(){
+								console.log("++++connection.end+++++")
+							});
 							callback(false)
 						})
 						

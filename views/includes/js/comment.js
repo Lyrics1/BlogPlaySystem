@@ -444,6 +444,21 @@ function jump(){
 
 
 	//实现图片并且显示
+
+	//个人信息暂存
+	$('.introduce').keyup(function(){
+		localStorage.setItem("introduce",$(this).val());
+	});
+	// localStorage.setItem('introduce',$('.introduce').val());
+	// $('.introduce').val(localStorage.getItem('introduce'))
+	$('#signout').click(function(){
+		// alert("1")
+		localStorage.removeItem('introduce');
+	})
+	//取消返回
+	$('.no').click(function(){
+		window.location.href="/information"
+	})
 	$('#inputPoster').change(function(e){
 		 if (this.files && this.files[0]) {
 		      var reader = new FileReader();
@@ -502,7 +517,7 @@ function jump(){
 				if(results.status){
 					console.log("评论成功")
 					var newDom = `<div class="media comment" id="${results.id}">
-								<a href="" class="pull-left"><img src="${results.img}" class="media-object"></a>
+								<a href="" class="pull-left"><img src="${results.img}" class="media-object img-circle"></a>
 				          <div class="media-body">
 				            <p class="media-heading show-username">${results.username} <span class="time">${results.time}</span></p>
 				            <div class="media show-content">${results.content}</div>

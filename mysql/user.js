@@ -26,9 +26,15 @@ SIGN=(data,status,callback)=>{
 						if(err){
 							return console.error('error signUP'+err.message);
 						}
+						connection.end(function(){
+							console.log("do --connection.end")
+						});
 					callback(true);
 				})
 				}else{
+					connection.end(function(){
+							console.log("do --connection.end")
+						});
 					callback(false);
 				}
 				
@@ -43,9 +49,15 @@ SIGN=(data,status,callback)=>{
 					return console.error('error signin'+err.message);
 				}
 				if(results){
+					connection.end(function(){
+							console.log("do --connection.end")
+						});
 					console.log(results)
 					callback(results);
 				}else{
+					connection.end(function(){
+							console.log("do --connection.end")
+						});
 					callback(false);
 				}
 			})
@@ -58,6 +70,9 @@ SIGN=(data,status,callback)=>{
 				if(err){
 					return console.error('error signin'+err.message);
 				}
+						connection.end(function(){
+							console.log("do --connection.end")
+						});
 				console.log('img',results)
 				callback(results)
 			})
@@ -70,6 +85,9 @@ SIGN=(data,status,callback)=>{
 				if(err){
 					return console.error('error signin'+err.message);
 				}
+						connection.end(function(){
+							console.log("do --connection.end")
+						});
 				console.log('img',results)
 				callback(true)
 			})
@@ -82,6 +100,10 @@ SIGN=(data,status,callback)=>{
 				if(err){
 					return console.error('error signin'+err.message);
 				}
+
+				connection.end(function(){
+					console.log("do --connection.end")
+				});
 				console.log('Newinfo',results)
 				callback(true)
 			})
@@ -96,6 +118,9 @@ SIGN=(data,status,callback)=>{
 					callback(false)
 					return console.error('error signin'+err.message);
 				}
+				connection.end(function(){
+					console.log("do --connection.end")
+				});
 				console.log('anotherInfo',results)
 				callback(results)
 			})

@@ -42,6 +42,9 @@ DO = (data,status,callback)=>{
 									if(err){
 										 return  console.error("error2"+err.message);
 									}
+									connection.end(function(){
+										console.log("do --connection.end")
+									});
 									// console.log(results[0].id);
 									callback(results[0].id);
 								})
@@ -67,6 +70,9 @@ DO = (data,status,callback)=>{
 							callback(false)
 							 return  console.error("error3"+err.message);
 						}
+						connection.end(function(){
+							console.log("do --connection.end")
+						});
 						// console.log("select success",results);
 						callback(results);
 					})
@@ -93,6 +99,9 @@ DO = (data,status,callback)=>{
 						if(err){
 							 return  console.error("error5"+err.message);
 						}
+						connection.end(function(){
+							console.log("do --connection.end")
+						});
 						// console.log("update success",statusId,results);
 						callback(statusId)
 					})
@@ -113,6 +122,9 @@ DO = (data,status,callback)=>{
 						if(err){
 							 return  console.error("error"+err.message);
 						}
+						connection.end(function(){
+							console.log("do --connection.end")
+						});
 						// console.log("delete success");
 						callback(true)
 					})
@@ -128,6 +140,9 @@ DO = (data,status,callback)=>{
 						if(err){
 							 return  console.error("error"+err.message);
 						}
+						connection.end(function(){
+							console.log("do --connection.end")
+						});
 						// console.log(results);
 						callback(results)
 					})

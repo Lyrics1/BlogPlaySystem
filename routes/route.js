@@ -78,8 +78,10 @@ app.get('/logout',(req,res)=>{
 	delete req.session.userImg;
 	delete app.locals.user ;//如果不删除 app.licals.user 页面是不会改变的
 	delete app.locals.userImg;
-	delete	app.locals.tempNoteTitle 
-	delete	app.locals.tempNotes 
+	delete app.locals.tempNoteTitle 
+	delete app.locals.tempNotes 
+	delete req.session.tempNoteTitle
+	delete req.session.tempNotes
 
 
 	res.redirect('/');
