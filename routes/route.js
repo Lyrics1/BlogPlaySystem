@@ -14,8 +14,6 @@ const Note = require('./note');
 module.exports =function(app) {
 	//设置持久化会话
 app.use("*",function(req,res,next){
-	// console.log("req.session.username : ",req.session.username)
-	// var user = req.session.username;
 	if(req.session.username){
 		app.locals.user = req.session.username;
 		app.locals.userImg =`../${req.session.userImg}`;

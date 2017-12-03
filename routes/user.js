@@ -62,7 +62,7 @@ exports.signin=(req,res,next)=>{
 		}
 
 		USER.SIGN(data,"signin",callback=(results)=>{
-			// console.log(results)
+			
 			if(results.length!=0){
 				  req.session.username = name;					
 				  req.session.password = password;
@@ -72,10 +72,35 @@ exports.signin=(req,res,next)=>{
 				  req.session.sex = results[0].sex;
 				  req.session.birthday = results[0].birthday;
 				  req.session.address =results[0].address;
-				  console.log("登录成功");
-				  // console.log(req.url)
-				  res.send({status:"登录成功"})
-				  // console.log("_=+++++++++ ",req.session.userImg)
+				  //获取临时存储的博客
+				  	if(req.session.userID){
+
+						var dir = path.resolve(__dirname,'..')
+						var fileName = req.session.userID;
+						fs.exists(`${dir}/blog/temp/${fileName}.json`,function(exists){
+							if(exists){
+								 fs.readFile(`${dir}/blog/temp/${fileName}.json`,'utf-8',function(err,DATA){
+								 	if(err){
+								 		status=false;
+								 		console.log("很抱歉 读取失败 ")
+								 	}
+								 	// console.log(DATA.title,"duqu ")
+								 	DATA= JSON.parse(DATA)
+								 	// console.log(DATA.title,"duqu ")
+								 	req.session.tempNoteTitle =DATA.title;
+									req.session.tempNotes =DATA.notes;	
+									  res.send({status:"登录成功"})	 	
+								 })
+							}else{
+									req.session.tempNoteTitle ="";
+									req.session.tempNotes ="";
+									res.send({status:"登录成功"})
+							}
+						})
+					}else{
+						res.send("请登录")
+					}
+
 			}else{
 				res.send({status:"请先进行注册信息"});
 			}

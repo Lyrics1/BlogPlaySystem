@@ -21,18 +21,55 @@ exports.add=(req,res)=>{
 }
 
 exports.tempNote=(req,res)=>{
-	
-	var data = req.body;
-	console.log(path.basename(__dirname),"tempNote")
 
-	if(req.body.title.length==0 || req.body.notes.length==0 ){
+	console.log(path.basename(__dirname),"tempNote")
+	if(!req.session.userID){
+		res.send("请先登录 ！")
+	}
+	if(req.body.title.length==0 || req.body.notes.length==0  ){
 		res.send("写点东西,再保存吧 ！")
 	}else{
 		// console.log("*()",req.body.title)
 		req.session.tempNoteTitle =req.body.title;
 		req.session.tempNotes =req.body.notes;
-		res.send("保存成功")
+		//临时长期存储
+		var data = {
+			title:req.body.title,
+			notes:req.body.notes
+		}
 
+		//保存为文件：每个人只有一个临时保存文件 id 为文件名
+		if(req.session.userID){
+			var dir = path.resolve(__dirname,'..')
+			var fileName = req.session.userID;
+			fs.exists(`${dir}/blog/temp`,function(exists){
+				if(exists){
+					 fs.writeFile(`${dir}/blog/temp/${fileName}.json`,JSON.stringify(data),function(err){
+					 	if(err){
+					 		status=false;
+					 		res.send("很抱歉 保存失败 ")
+					 	}
+					 	res.send("保存成功")				 	
+					 })
+				}else{
+					fs.mkdir(`${dir}/blog/temp`,function(err){
+						if(err){
+							console.log("创建文件失败");
+							res.send("很抱歉 保存失败 ")
+						}
+						fs.writeFileSync(`${dir}/blog/temp/${fileName}.json`,data,function(err){
+					 	if(err){
+					 		status=false;
+					 		res.send("很抱歉 保存失败 ")
+					 	}
+					 	res.send("保存成功")					 	
+					 })						
+					})
+				}
+			})
+		}else{
+			res.send("请登录")
+		}
 	}
 }
 
@@ -174,7 +211,7 @@ exports.look=(req,res)=>{
 							console.log(err)
 							return;
 						}
-							console.log(marked(DATA))
+							// console.log(marked(DATA))
 							// DATA =	marked(DATA)
 							// res.send(DATA)
 							res.render('look',{

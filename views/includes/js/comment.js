@@ -52,8 +52,8 @@ window.onload = function(){
 	}
 
 
-	localStorage.setItem('noteTitle',$('.noteTitle').val());
-	localStorage.setItem('notes',$('.notes').val());
+	// localStorage.setItem('noteTitle',$('.noteTitle').val());
+	// localStorage.setItem('notes',$('.notes').val());
 	function clearLocalStorage(...Item){
 		$('.alert-tip').hide();
 			Item.forEach(function(e){
@@ -66,8 +66,8 @@ window.onload = function(){
 		clearLocalStorage("notes","noteTitle")
 	})
 	//读取localStorage
-	$('.noteTitle').val(localStorage.getItem('noteTitle'));
-	$('.notes').val(localStorage.getItem('notes'));
+	// $('.noteTitle').val(localStorage.getItem('noteTitle'));
+	// $('.notes').val(localStorage.getItem('notes'));
 	//防止刷新内容消失
 	$('.noteTitle').keyup(function(){
 		$('.alert-tip').hide();
