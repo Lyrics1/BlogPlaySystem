@@ -1,0 +1,19 @@
+<p>需求 ：在控制台上记录用户的每个动作
+不知道您是否有后端的开发经验，后端一般会有记录访问日志的中间件
+例如，在 Express 中实现一个简单的 Logger 如下：</p>
+<p>var loggerMiddleware = function(req, res, next) {
+  console.log(&#39;[Logger]&#39;, req.method, req.originalUrl)
+  next()
+}
+...
+app.use(loggerMiddleware)
+`
+每次访问的时候，都会在控制台中留下类似下面的日志便于追踪调试：</p>
+<p>1
+2
+3
+4
+[Logger] GET  /
+[Logger] POST /login
+[Logger] GET  /user?uid=10086
+...</p>
