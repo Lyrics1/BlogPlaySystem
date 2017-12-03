@@ -17,8 +17,8 @@ exports.index = function(req,res,next){
 
 
 exports.getName = function(req,res){
-	console.log("judge")
+	// console.log("judge")
 	const name = req.session.username;
-	console.log(name)
+	// console.log(name)
 	res.send(`name:${name}`);
 }

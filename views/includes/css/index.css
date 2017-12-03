@@ -40,6 +40,11 @@
 .Fuser{
 	cursor: pointer;
 }
+.alert-type{
+	display: none;
+	background: #0ebdd6;
+	color: #fff;
+}
 input[type=radio],select option{
 	margin-left:15px ;
 	margin-top:20px;
@@ -157,7 +162,16 @@ textarea,.noteTitle {
 }*/
 .look .Title{
 	text-align: center;
-	font-weight: 800
+	font-weight: 800;
+	padding-bottom: 5px;
+	/*border-bottom: 2px solid #ccc*/
+}
+.contentlook{
+	/*width: 70%;*/
+	padding-bottom: 5px;
+	border: 1px solid #ccc;
+	border-top:0px; 
+	padding:2% 8% 5% 8%;
 }
 .dsearch{
 	margin-top:2%;

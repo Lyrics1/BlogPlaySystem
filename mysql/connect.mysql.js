@@ -17,7 +17,7 @@ connection.connect((err)=>{
 const sql = `INSERT INTO student(name,tel) VALUES(?,?)`;
 
 const data = [`${Data.name}`,`${Data.password}`];
-console.log("data",data);
+// console.log("data",data);
 
 connection.query(sql,data,(err,results,fields)=>{
 	if(err){
@@ -25,7 +25,7 @@ connection.query(sql,data,(err,results,fields)=>{
 	}
 	//可以得到插入行的id
 		callback(0)
-	  console.log('Todo Id:' + results.insertId);
+	  // console.log('Todo Id:' + results.insertId);
 	  // return results.insertId;
 });
 

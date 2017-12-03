@@ -6,6 +6,7 @@ const Comment = require('../mysql/comment.js');
 //detail
 exports.detail=function(req,res,next){
 	const data =req.params.id
+	console.log(path.basename(__dirname),"detail")
 
 	MYSQL.DO(data,'select',callback=(results)=>{
 		if(results){
@@ -23,7 +24,6 @@ exports.detail=function(req,res,next){
 		var Data={
 			movieID:data
 		}
-		// console.log(Data,"data")
 		Comment.COMMENT(Data,'ALL',(result)=>{
 			// console.log("comment",result)
 			
@@ -52,9 +52,8 @@ exports.detail=function(req,res,next){
 
 //update
 exports.update=function(req,res){
-	var data= req.params;
-
-	console.log("******",data.id)
+	var data= req.params
+	console.log(path.basename(__dirname),"update")
 
 	data = data.id;
 	MYSQL.DO(data,'select',callback=(results)=>{
@@ -93,9 +92,9 @@ exports.newMovie=function(req,res){
 	var obj = req.body;
 	const data = req.body;
 // <<<<<<< HEAD
-	console.log("data")
+	console.log(path.basename(__dirname),"newMovie")
 // =======
-	console.log("movieID-----------",data)
+	// console.log("movieID-----------",data)
 // >>>>>>> c8acf45a1dd9dc9c62125e7e65dc4c523a5ff937
 	if(req.body.status == "update"){	
 		MYSQL.DO(data,'update',callback=(results)=>{
@@ -131,6 +130,7 @@ exports.admininsert=function(req,res){
 
 //adminlist
 exports.adminlist=function(req,res){
+	console.log(path.basename(__dirname),"adminlist")
 	const data = "";
 	MYSQL.DO(data,'select',callback=(results)=>{
 		// console.log("list",results.id)
@@ -154,6 +154,7 @@ exports.adminlist=function(req,res){
 //list delete movie
 exports.del=(req,res)=>{
 	var data = req.body;
+	console.log(path.basename(__dirname),"del")
 	 // console.log("moviedelId ",data)
 	MYSQL.DO(data,'delete',callback=(results)=>{
 		
@@ -165,10 +166,11 @@ exports.del=(req,res)=>{
 }
 
 exports.searchInfo =function(req,res){
-	console.log(req.body);
+	// console.log(req.body);
+	console.log(path.basename(__dirname),"searchInfo")
 	var data = req.body.info
 	// data =(req.body).replace(/^\s+/,'').split('').reverse().join('').replace(/^\s+/,'').split('').reverse().join('')
-	console.log(req.body,data);
+	// console.log(req.body,data);
 
 	MYSQL.DO(data,'searchInfo',callback=(results)=>{
 		// console.log(results[0].id);

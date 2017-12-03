@@ -7,7 +7,7 @@ window.onload = function(){
 	//设置博客评论
 	//1： 发表评论
 	
-
+	
 
 	//查询上一页，下一页：
 	var RepreNext = /\/\d+$/;
@@ -40,10 +40,10 @@ window.onload = function(){
 		
 	}
 	//设置为只读
-	$('.look .noteTitle').css('display',"none")
-	$('.look .notes').eq(1).css('display',"none")
+	// $('.look .noteTitle').css('display',"none")
+	// $('.look .notes').eq(1).css('display',"none")
 	$('.look .notes').eq(0).attr('readonly',"true")
-	$('.look .Ti').css('display',"none")
+	// $('.look .Ti').css('display',"none")
 	//newADD
 	//存储在localstorage 里面
 	//清除localStorage
@@ -100,21 +100,32 @@ window.onload = function(){
 	$('.type0').click(function(){
 		TYPE = 0;
 		console.log(TYPE)
+		$('.alert-type').text("当前选择类型是: 随笔");
+		$('.alert-type').show('slow');
+
 	});
 	$('.type1').click(function(){
 		TYPE = 1;
 		console.log(TYPE)
+		$('.alert-type').text("当前选择类型是: 心情");
+		$('.alert-type').show('slow');
 	});
 	$('.type2').click(function(){
 		TYPE = 2;
+		$('.alert-type').text("当前选择类型是：博客");
+		$('.alert-type').show('slow');
 		console.log(TYPE)
 	});
 	$('.type3').click(function(){
 		TYPE = 3;
+		$('.alert-type').text("当前选择类型是：日记");
+		$('.alert-type').show('slow');
 		console.log(TYPE)
 	});
 	$('.Markdown').click(function(){
 		TYPE = 4;
+		$('.alert-type').text("当前选择类型是 : Markdown");
+		$('.alert-type').show('slow');
 		console.log(TYPE)
 	});
 
@@ -159,14 +170,16 @@ window.onload = function(){
 
 
 
-
+	//转换Markdown
+	$('.contentlook').html(marked($('.contentlook').text()))
 	$('.notesave').click(function(){
 		$('.alert-tip').hide();
 		if(isEmpty()){
 			// console.log($('.notecontent').html())
 			var noteTitle = $('.noteTitle').val();
-				console.log(noteTitle)
-			var noteContent=$('.notecontent').html();
+			console.log(noteTitle)
+			var noteContent=marked($('.notes').val());
+			// var noteContent=$('.notecontent').html();
 			console.log( noteContent)
 			$.ajax({
 				url:`http://localhost:${port}/show`,

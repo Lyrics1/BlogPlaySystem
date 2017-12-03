@@ -11,27 +11,24 @@ const marked = require('marked');
 exports.add=(req,res)=>{
 	
 	var data = req.query;
-	console.log(data,"***---");
+	console.log(path.basename(__dirname),"add")
 
 	res.render('note',{
 		title:'Note',
 		world:"别错过年少的疯狂，时光很匆忙"
 	})
-	// res.end()
-	// var name = req.body.username;
-	// var password = req.body.password;
 	
 }
 
 exports.tempNote=(req,res)=>{
 	
 	var data = req.body;
-
+	console.log(path.basename(__dirname),"tempNote")
 
 	if(req.body.title.length==0 || req.body.notes.length==0 ){
 		res.send("写点东西,再保存吧 ！")
 	}else{
-		console.log("*()",req.body.title)
+		// console.log("*()",req.body.title)
 		req.session.tempNoteTitle =req.body.title;
 		req.session.tempNotes =req.body.notes;
 		res.send("保存成功")
@@ -48,7 +45,7 @@ exports.show=(req,res)=>{
 	//删除sessioNote
 	 req.session.tempNoteTitle=""
 	  req.session.tempNotes =""
-
+	console.log(path.basename(__dirname),"show")
 	
 	var data = req.body.content;
 	// console.log(data,"***",req.session.id);
@@ -58,7 +55,7 @@ exports.show=(req,res)=>{
 		var fileName = req.session.userID;
 		var blogName = new Date();
 		var status =true;
-		console.log(`${dir}/blog/${fileName}/${blogName}`)
+		// console.log(`${dir}/blog/${fileName}/${blogName}`)
 		fs.exists(`${dir}/blog/${fileName}`,function(exists){
 			if(exists){
 				 fs.writeFile(`${dir}/blog/${fileName}/${blogName}`,data,function(err){
@@ -77,7 +74,7 @@ exports.show=(req,res)=>{
 				 	}
 					NOTE.NOTE(Data,'add',callback=(results)=>{
 						// res.send("发表成功")
-						console.log(results,"222")
+						// console.log(results,"222")
 						var REdata= {
 								userID:req.session.userID,
 								notId:results[0].id,
@@ -106,9 +103,8 @@ exports.show=(req,res)=>{
 						Title:req.body.Title
 				 	}
 					NOTE.NOTE(Data,'add',callback=(results)=>{
-						console.log(results)
-						console.log(results,"333")
-							// res.send("发表成功")
+						// console.log(results,"333")
+						
 							var REdata= {
 								userID:req.session.userID,
 								notId:results[0].id
@@ -127,10 +123,10 @@ exports.show=(req,res)=>{
 							userID:req.session.userID,
 							Title:req.body.Title
 					 	}
-					 	console.log(Data,"first--")
+					 	// console.log(Data,"first--")
 						NOTE.NOTE(Data,'add',callback=(results)=>{
-							console.log(results,"444")
-							console.log(results)
+							// console.log(results,"444")
+							// console.log(results)
 							var REdata= {
 								userID:req.session.userID,
 								notId:results[0].id
@@ -153,23 +149,24 @@ exports.show=(req,res)=>{
 exports.look=(req,res)=>{
 	
 	var Data = req.params;
-	console.log(req.session.userID);
+	// console.log(req.session.userID);
+	console.log(path.basename(__dirname),"look")
 	Data.isYou=1;
 	//判断是否是本人
 	if(Data.id!=req.session.userID){
 		Data.isYou=0;
-		console.log("not**")
+		// console.log("not**")
 	}
     //先开始从数据库中得到文件名
     NOTE.NOTE(Data,'findFile',callback=(results)=>{
-    	console.log(results,"OO");
+    	// console.log(results,"OO");
     	if(results.length!=0){
 	    	var fileName=results[0].notes;
 	    	var NoteTitle = results[0].noteTitle;
 	    	// 开始异步读取文件
 			var readDir = path.resolve(__dirname,'..');
 			var ReadPath = `${readDir}/blog/${Data.id}/${fileName}`
-			console.log(ReadPath);
+			// console.log(ReadPath);
 			fs.exists(ReadPath,function(exists){
 				if(exists){
 						fs.readFile(ReadPath,'utf-8',function(err,DATA){
@@ -177,7 +174,7 @@ exports.look=(req,res)=>{
 							console.log(err)
 							return;
 						}
-							// console.log(marked(DATA))
+							console.log(marked(DATA))
 							// DATA =	marked(DATA)
 							// res.send(DATA)
 							res.render('look',{
@@ -203,12 +200,13 @@ exports.look=(req,res)=>{
 }
 
 exports.allnotes=(req,res)=>{
-	console.log(req.params);
+	// console.log(req.params);
+	console.log(path.basename(__dirname),"allnotes")
 
 	
 	var data = req.params;
 
-	console.log(data,"***---");
+	// console.log(data,"***---");
 	data={
 		id:req.session.userID,
 		parper:data.id
@@ -224,18 +222,3 @@ exports.allnotes=(req,res)=>{
 	
 	
 }
-
-// // exports.pre=(req,res)=>{
-// // 	console.log()
-// // 	NOTE.NOTE(data,"pre",callback=(results)=>{
-// // 		res.render('allNotes',{
-// // 			title:'Notes',
-// // 			world:" ",
-// // 			notes:{}
-// // 		})
-// // 	})
-	
-	
-	
-// }
-

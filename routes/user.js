@@ -9,7 +9,7 @@ var nameRegExp = /^[\u4e00-\u9fa5]{2,12}$/;
 var passRegExp = /^[\w]{6,12}$/;
 //注册
 exports.signup=(req,res)=>{
-	
+	console.log(path.basename(__dirname),"signup")
 	var data = req.body;
 	// console.log(data);
 	var name = req.body.username;
@@ -50,6 +50,7 @@ exports.signup=(req,res)=>{
 
 //登录
 exports.signin=(req,res,next)=>{
+	console.log(path.basename(__dirname),"signin")
 	const name = req.body.username;
 	const password = req.body.password;
 	if(nameRegExp.test(name) && passRegExp.test(password)){
@@ -61,7 +62,7 @@ exports.signin=(req,res,next)=>{
 		}
 
 		USER.SIGN(data,"signin",callback=(results)=>{
-			console.log(results)
+			// console.log(results)
 			if(results.length!=0){
 				  req.session.username = name;					
 				  req.session.password = password;
@@ -72,9 +73,9 @@ exports.signin=(req,res,next)=>{
 				  req.session.birthday = results[0].birthday;
 				  req.session.address =results[0].address;
 				  console.log("登录成功");
-				  console.log(req.url)
+				  // console.log(req.url)
 				  res.send({status:"登录成功"})
-				  console.log("_=+++++++++ ",req.session.userImg)
+				  // console.log("_=+++++++++ ",req.session.userImg)
 			}else{
 				res.send({status:"请先进行注册信息"});
 			}
@@ -87,7 +88,7 @@ exports.signin=(req,res,next)=>{
 
 
 exports.requireSign =function(req,res,next){
-console.log("adm",req.body)
+	console.log(path.basename(__dirname),"requireSign")
 	var user  = req.session.username;
 	if(!user){
 		console.log("没有登录!")
@@ -99,6 +100,7 @@ console.log("adm",req.body)
 
 
 exports.requireAdmin = function(req,res,next){
+	console.log(path.basename(__dirname),"requireAdmin")
 		//判断管理员
 		// console.log("admin",req.body)
 		const name = req.session.username;
@@ -111,7 +113,7 @@ exports.requireAdmin = function(req,res,next){
 			username:name,
 			password:newPass
 		}
-		console.log("dataAdmin",data)
+		// console.log("dataAdmin",data)
 		if(nameRegExp.test(name) && passRegExp.test(password)){
 			
 			var data = {
@@ -123,7 +125,7 @@ exports.requireAdmin = function(req,res,next){
 				// console.log(results);
 				if(results.length!=0){
 					req.session.username = name;
-					console.log("role",results,results[0].role )
+					// console.log("role",results,results[0].role )
 					if(results[0].role >=10){
 						next()
 					}else{
@@ -140,9 +142,10 @@ exports.requireAdmin = function(req,res,next){
 //comment
 
 exports.comment = function(req,res,next){
+	console.log(path.basename(__dirname),"comment")
 	var content = req.body.content
-	console.log("获的评论",content);
-	console.log(content.trim());
+	// console.log("获的评论",content);
+	// console.log(content.trim());
 	content = content.trim();
 	
 	const user  = req.session.username;
@@ -185,12 +188,12 @@ exports.comment = function(req,res,next){
 }
 //回复功能
 exports.receive =function(req,res,next){
-
+	console.log(path.basename(__dirname),"receive")
 	var movieID = req.body.movieID;
 	var content= req.body.content;
 	var bcommentID = req.body.bcommentID;//被评论的id
 	//根据bcommentID 查找被评论者的名字和评论的内容,然后插入comment
-	console.log(bcommentID,content,movieID)
+	// console.log(bcommentID,content,movieID)
 	var Judge = req.session.username;
 
 	if(Judge==null){
@@ -204,7 +207,7 @@ exports.receive =function(req,res,next){
 	Comment.COMMENT(DATA,'bcomment',callback=(results)=>{
 		var pushTime = new Date();
 		var pushTime= pushTime.toLocaleDateString().replace(/\//g, "-") + " " + pushTime.toTimeString().substr(0, 8)
-			console.log(results);
+			// console.log(results);
 			var data = {
 				movieID:movieID,//电影的id
 				content:content,//回复的内容
@@ -216,7 +219,7 @@ exports.receive =function(req,res,next){
 				time:pushTime//时间
 			}
 			Comment.COMMENT(data,'inserReceive',callback=(results)=>{
-				console.log(results);
+				// console.log(results);
 				var returnData ={
 					id:1,
 					img:"../image/2.jpg",
@@ -234,6 +237,7 @@ exports.receive =function(req,res,next){
 
 
 exports.nice=function(req,res,next){
+	console.log(path.basename(__dirname),"nice")
 	var Judge = req.session.username;
 	if(Judge==null){
 		res.send(`status:false`);
@@ -241,7 +245,7 @@ exports.nice=function(req,res,next){
 	}
 	var id = req.body.id;
 	var userID = req.session.userID;
-	console.log(id,userID);
+	// console.log(id,userID);
 	var data ={
 		id : id,
 		userID:userID
@@ -253,13 +257,13 @@ exports.nice=function(req,res,next){
 }
 //个人信息展示
 exports.info=(req,res)=>{
-	
+	console.log(path.basename(__dirname),"info")
 	var data = req.query;
-	console.log(data);
+	// console.log(data);
 	
 		var  hash = crypto.createHash('md5');
 		const newPass = hash.update(req.session.password).digest("hex");
-		console.log(newPass,"newPass");
+		// console.log(newPass,"newPass");
 		var data = {
 			name :req.session.username,
 			password:newPass
@@ -271,20 +275,20 @@ exports.info=(req,res)=>{
 				  req.session.birthday = results[0].birthday;
 				  req.session.address =results[0].address;
 			var man,woman,none;
-			console.log(results[0].sex)
+			// console.log(results[0].sex)
 			if(results[0].sex=='男'){
-				console.log("1")
+				// console.log("1")
 				man = "true";
 				woman=none="false"
 			}
 			if(results[0].sex=='女'){
-					console.log("2")
+					// console.log("2")
 				woman = "true";
 				man=none="false"
 			}
 			if(!results[0].sex=='女'&&results[0].sex=='男'){
 				none="true";
-					console.log("10")
+					// console.log("10")
 				woman=man="false"
 			}
 			// if(birthday)
@@ -306,19 +310,20 @@ exports.info=(req,res)=>{
 	
 }
 exports.updateImg=(req,res)=>{
+	console.log(path.basename(__dirname),"updateImg")
 	// console.log("getIMg",req);
 	var  hash = crypto.createHash('md5');
 		const newPass = hash.update(req.session.password).digest("hex");
-		console.log(newPass,"newPass");
+		// console.log(newPass,"newPass");
 	var NewImg={
 			name:req.session.username,
 			password:newPass,
 			img:"ll"
 		}
 	var form = new formidable.IncomingForm();
-	console.log(__dirname)
+	// console.log(__dirname)
 	var dir = path.resolve(__dirname,'..')
-	console.log(__dirname,dir)
+	// console.log(__dirname,dir)
 	var filename = req.session.userID;
 
 	fs.exists(`${dir}/views/includes/image/photo/${filename}`, function (exists) {
@@ -332,13 +337,13 @@ exports.updateImg=(req,res)=>{
 	        	}
 
 				var NewPath = new Date();
-				console.log(files.picpath.path,form.uploadDir);
+				// console.log(files.picpath.path,form.uploadDir);
 				var photoSRC = path.basename(files.picpath.path);
-				console.log(photoSRC);
+				// console.log(photoSRC);
 				NewImg.img=photoSRC
 				req.session.userImg = `../image/photo/${filename}/${photoSRC}`;
 				USER.SIGN(NewImg,"updateImg",callback=(results)=>{
-					console.log(results);
+					// console.log(results);
 					// if(results){
 						 res.redirect('/information');
 					// }
@@ -363,13 +368,13 @@ exports.updateImg=(req,res)=>{
 		        	}
 
 					var NewPath = new Date();
-					console.log(files.picpath.path,form.uploadDir);
+					// console.log(files.picpath.path,form.uploadDir);
 					var photoSRC = path.basename(files.picpath.path);
-					console.log(photoSRC);
+					// console.log(photoSRC);
 					NewImg.img=photoSRC
 					req.session.userImg = `../image/photo/${filename}/${photoSRC}`;
 					USER.SIGN(NewImg,"updateImg",callback=(results)=>{
-						console.log(results);
+						// console.log(results);
 						// if(results){
 							 res.redirect('/information');
 						// }
@@ -383,10 +388,11 @@ exports.updateImg=(req,res)=>{
 }
 
 exports.updateinfo=function(req,res){
-	console.log(req.body);
+	console.log(path.basename(__dirname),"updateinfo")
+	// console.log(req.body);
 	var  hash = crypto.createHash('md5');
 	const newPass = hash.update(req.session.password).digest("hex");
-	console.log(newPass,"newPass");
+	// console.log(newPass,"newPass");
 	var INFO = {
 		Newname :req.body.name,
 		introduce:req.body.introduce,
@@ -397,7 +403,7 @@ exports.updateinfo=function(req,res){
 
 	//进行信息正则验证
 	USER.SIGN(INFO,'updateinfo',callback=(results)=>{
-		console.log(results);
+		// console.log(results);
 		req.session.username=req.body.name;
 
 		res.send({status:"success"})
@@ -405,8 +411,9 @@ exports.updateinfo=function(req,res){
 }
 
 exports.anotherInfo = function(req,res){
+	console.log(path.basename(__dirname),"anotherInfo")
 	var data = req.params;
-	console.log(data);
+	// console.log(data);
 		//IS YOUR 
 		if(req.session.userID == data.id){
 			res.redirect('/information')

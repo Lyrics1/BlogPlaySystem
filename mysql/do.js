@@ -1,4 +1,5 @@
 DO = (data,status,callback)=>{
+	console.log("DO")
 	const mysql = require('mysql');
 	const config = require('./config');
 	if(data.flash!="undefined"){
@@ -58,13 +59,13 @@ DO = (data,status,callback)=>{
 			//select by id
 			if(status=='select'){
 				var  selectSql;
-				console.log("data.id",data,data.id)
+				// console.log("data.id",data,data.id)
 				if(data==""){
 					 selectSql = `select * from imooc `;
 				}else{
 					 selectSql = `select * from imooc where id = ${data}`;
 				}
-				console.log(selectSql,"selectSql")
+				// console.log(selectSql,"selectSql")
 				connection.query(selectSql,(err,results,fields)=>{
 						if(err){
 							callback(false)
@@ -116,7 +117,7 @@ DO = (data,status,callback)=>{
 
 				// console.log(deleteSql,data.id)
 
-				console.log(deleteSql)
+				// console.log(deleteSql)
 
 				connection.query(deleteSql,(err,results,fields)=>{
 						if(err){

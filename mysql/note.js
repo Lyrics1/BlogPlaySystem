@@ -1,7 +1,8 @@
 var db = require('./mysql-pool.config.js');
 
 NOTE=(data,status,callback)=>{
-	console.log(data,status)
+	console.log("NOTE")
+	// console.log(data,status)
 	db.con(function(connect){
 
 		if(status=="add"){
@@ -36,7 +37,7 @@ NOTE=(data,status,callback)=>{
 				findFileSql =`select notes,noteTitle from note where id ="${data.T}" and type != 3`;
 			}
 			
-			console.log(findFileSql)
+			// console.log(findFileSql)
 
 				connect.query(findFileSql,function(err,result){
 					if(err){
@@ -55,7 +56,7 @@ NOTE=(data,status,callback)=>{
 				findAllSql =`select * from note where  type != 3 limit  ${data.parper*8} ,${data.parper*8+8}`;
 			}
 			
-			console.log(findAllSql,"))",data.id)
+			// console.log(findAllSql,"))",data.id)
 
 				connect.query(findAllSql,function(err,result){
 					if(err){
