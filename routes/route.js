@@ -3,12 +3,12 @@ const MYSQL = require('../mysql/do.js');
 const USER = require('../mysql/user.js');
 const crypto = require('crypto');//数据进行加密
 const path = require('path');
-
-
 const User = require('./user');
 const Movie = require('./movie');
 const Index = require('./index');
 const Note = require('./note');
+var  logger = require('../log4')
+
 
 
 module.exports =function(app) {
@@ -80,6 +80,7 @@ app.get('/logout',(req,res)=>{
 	delete app.locals.tempNotes 
 	delete req.session.tempNoteTitle
 	delete req.session.tempNotes
+	logger.debug("loginout")
 
 
 	res.redirect('/');

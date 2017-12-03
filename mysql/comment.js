@@ -1,6 +1,7 @@
+var  logger = require('../log4')
 COMMENT=(data,status,callback)=>{
 	// console.log(data)
-	console.log("COMMENT")
+	logger.debug("COMMENT")
 	const mysql = require('mysql');
 	const config = require('./config.js');
 	const connection = mysql.createConnection(config);
@@ -8,36 +9,35 @@ COMMENT=(data,status,callback)=>{
 		if(err){
 			return console.error('error'+err.message);
 		}
-		console.log("connection success");
+		logger.debug("connection success");
 		if(status=="comment"){//评论
 			//insert
 			const commentSql = `insert into comment(movieID,commenterID,time,content) values(${data.movieID},${data.commenterID},"${data.time}","${data.content}")`;
-			// console.log(commentSql)
 			connection.query(commentSql,(err,results,fields)=>{
 				if(err){
 					return console.error('error signUP'+err.message);
 				}
 				connection.end(function(){
-					console.log("connection.end")
+					logger.debug("connection.end")
 				});
 				callback(true);
 			})
 		}
 		if(status=="receive"){//回复
 			const receiveSql = `select * from comment where name= "${data.name}" and password = "${data.password}"`;
-			// console.log(receiveSql)
+			
 			connection.query(receiveSql,(err,results,fields)=>{
 				if(err){
 					return console.error('error signin'+err.message);
 				}
 				if(results.length!=0){
 					connection.end(function(){
-						console.log("connection.end")
+						logger.debug("connection.end")
 					});
 					callback(results);
 				}else{
 					connection.end(function(){
-						console.log("connection.end")
+						logger.debug("connection.end")
 					});
 					callback(false);
 				}
@@ -46,13 +46,13 @@ COMMENT=(data,status,callback)=>{
 		if(status=="ALL"){
 			//按时间顺序返回所有信息
 			const allSql = `select comment.id,comment.messageID,comment.observerID,comment.commenterID,comment.obName,comment.obcontent,comment.time,comment.content,comment.nice,user.name,user.img,user.id as userid from comment,user where comment.movieID = ${data.movieID} and comment.commenterID=user.id order by time desc`;
-			// console.log(allSql);
+			
 			connection.query(allSql,(err,results,fields)=>{
 				if(err){
 					return console.error('error signin'+err.message);
 				}
 					connection.end(function(){
-						console.log("connection.end")
+						logger.debug("connection.end")
 					});
 					callback(results);
 				
@@ -61,13 +61,13 @@ COMMENT=(data,status,callback)=>{
 		//查找b被评论的name 和 内容
 		if(status=='bcomment'){
 			const bSql = `select comment.content,user.name,user.id from comment,user where comment.movieID= ${data.movieID} and comment.commenterID = user.id and comment.id= ${data.bcommentID}`;
-			// console.log(bSql);
+			
 			connection.query(bSql,(err,results,fields)=>{
 				if(err){
 					return console.error('error signin'+err.message);
 				}
 				connection.end(function(){
-					console.log("connection.end")
+					logger.debug("connection.end")
 				});
 				callback(results);
 				
@@ -76,22 +76,14 @@ COMMENT=(data,status,callback)=>{
 		//存储回复
 		if(status=="inserReceive"){
 			const breceiveSql = `insert into comment(messageID,movieID,observerID,obcontent,obName,commenterID,time,content) values(${data.bcommentID},${data.movieID},${data.buserID},"${data.bcontent}","${data.bname}",${data.id},"${data.time}","${data.content}")`;
-			// console.log(breceiveSql)
+			
 			connection.query(breceiveSql,(err,results,fields)=>{
 				if(err){
 					return console.error('errorReceive'+err.message);
 				}
-				//查找刚才插入的数据
-				// const selectReceive = `select * from comment where id =(select max(id) from comment) `
-				// 	console.log(selectReceive)
-				// connection.query(selectReceive,(err,results,fields)=>{
-				// 	if(err){
-				// 		return console.error('errorSelectReceive'+err.message);
-				// 	}
-				// 	callback(results)
-				// })
+
 				connection.end(function(){
-					console.log("connection.end")
+					logger.debug("connection.end")
 				});
 
 				callback(true);
@@ -100,17 +92,17 @@ COMMENT=(data,status,callback)=>{
 		//点赞查询
 		if(status=="CheckNice"){
 			const niceSql = `select * from nice where messageid =${data.id} and userid = ${data.userID}` ;
-			// console.log(niceSql)
+		
 			connection.query(niceSql,(err,results,fields)=>{
 				if(err){
 					return console.error('ERR CheckNice'+err.message);
 				}
-				// console.log("点赞",results.length)
+			
 				if(results.length==0){
 					//添加本条评论的赞
 					// console.log("添加赞")
 					const insertNiceSql = `insert into nice (messageid,userid) values(${data.id},${data.userID})`
-					// console.log(insertNiceSql)
+					
 					connection.query(insertNiceSql,(err,results,fields)=>{
 						if(err){
 							return console.error('insertNiceSql'+err.message);
@@ -123,7 +115,7 @@ COMMENT=(data,status,callback)=>{
 								return console.error('in'+err.message);
 							}
 							connection.end(function(){
-								console.log("connection.end")
+								logger.debug("connection.end")
 							});
 							callback(true);
 						})
@@ -145,7 +137,7 @@ COMMENT=(data,status,callback)=>{
 								return console.error('update'+err.message);
 							}
 							connection.end(function(){
-								console.log("connection.end")
+								logger.debug("connection.end")
 							});
 							callback(false)
 						})
@@ -154,7 +146,7 @@ COMMENT=(data,status,callback)=>{
 				}
 			})
 		}
-	// connection.end(()=>console.log("connection.end"));	
+
 
 	});
 

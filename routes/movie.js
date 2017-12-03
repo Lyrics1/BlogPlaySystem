@@ -1,12 +1,13 @@
 const MYSQL = require('../mysql/do.js');
 const path = require('path');
 const Comment = require('../mysql/comment.js');
+var  logger = require('../log4')
 
 
 //detail
 exports.detail=function(req,res,next){
 	const data =req.params.id
-	console.log(path.basename(__dirname),"detail")
+	logger.debug(path.basename(__dirname),"detail")
 
 	MYSQL.DO(data,'select',callback=(results)=>{
 		if(results){
@@ -53,7 +54,7 @@ exports.detail=function(req,res,next){
 //update
 exports.update=function(req,res){
 	var data= req.params
-	console.log(path.basename(__dirname),"update")
+	logger.debug(path.basename(__dirname),"update")
 
 	data = data.id;
 	MYSQL.DO(data,'select',callback=(results)=>{
@@ -92,7 +93,7 @@ exports.newMovie=function(req,res){
 	var obj = req.body;
 	const data = req.body;
 // <<<<<<< HEAD
-	console.log(path.basename(__dirname),"newMovie")
+	logger.debug(path.basename(__dirname),"newMovie")
 // =======
 	// console.log("movieID-----------",data)
 // >>>>>>> c8acf45a1dd9dc9c62125e7e65dc4c523a5ff937
@@ -112,6 +113,7 @@ exports.newMovie=function(req,res){
 
 //admininsert
 exports.admininsert=function(req,res){
+	logger.debug(path.basename(__dirname),"admininsert")
 	res.render('admin',{
 		title:'Lyrics 后台录入页',
 		movies:{
@@ -130,7 +132,7 @@ exports.admininsert=function(req,res){
 
 //adminlist
 exports.adminlist=function(req,res){
-	console.log(path.basename(__dirname),"adminlist")
+	logger.debug(path.basename(__dirname),"adminlist")
 	const data = "";
 	MYSQL.DO(data,'select',callback=(results)=>{
 		// console.log("list",results.id)
@@ -154,7 +156,7 @@ exports.adminlist=function(req,res){
 //list delete movie
 exports.del=(req,res)=>{
 	var data = req.body;
-	console.log(path.basename(__dirname),"del")
+	logger.debug(path.basename(__dirname),"del")
 	 // console.log("moviedelId ",data)
 	MYSQL.DO(data,'delete',callback=(results)=>{
 		
@@ -167,7 +169,7 @@ exports.del=(req,res)=>{
 
 exports.searchInfo =function(req,res){
 	// console.log(req.body);
-	console.log(path.basename(__dirname),"searchInfo")
+	logger.debug(path.basename(__dirname),"searchInfo")
 	var data = req.body.info
 	// data =(req.body).replace(/^\s+/,'').split('').reverse().join('').replace(/^\s+/,'').split('').reverse().join('')
 	// console.log(req.body,data);

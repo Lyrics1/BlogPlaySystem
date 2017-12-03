@@ -23,18 +23,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-var logConfig = require('./logs/log.config');
+
 
 //设置日志配置
-const log4js = require('log4js');//日志管理
-log4js.configure(logConfig);
-const logger = log4js.getLogger('ruleFile');
-logger.trace('Entering cheese testing');
-logger.debug('Got cheese.');
-logger.info('Cheese is Gouda.');
-logger.warn('Cheese is quite smelly.');
-logger.error('Cheese is too ripe!');
-logger.fatal('Cheese was breeding ground for listeria.');
+var  logger = require('./log4')
+logger.debug("Some debug messages");
+
 
 
 app.use(function(req,res,next){
@@ -71,5 +65,5 @@ require('./routes/route')(app)
 app.use(express.static(path.join(__dirname,"views/includes")));
 server.listen(port);
 
-console.log("port",port);
+logger.debug("port",port);
 

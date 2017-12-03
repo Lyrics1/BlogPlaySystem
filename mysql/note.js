@@ -1,7 +1,7 @@
 var db = require('./mysql-pool.config.js');
-
+var  logger = require('../log4')
 NOTE=(data,status,callback)=>{
-	console.log("NOTE")
+	logger.debug("NOTE")
 	// console.log(data,status)
 	db.con(function(connect){
 
@@ -14,14 +14,14 @@ NOTE=(data,status,callback)=>{
 				if(err){
 					callback(false);
 					return;
-					console.log("失败")
+					logger.debug("失败")
 				}
 
 				connect.query(`select id from note where notes ="${data.notes}"`,function(err,result){
 					if(err){
 						callback(false);
 						return;
-						console.log("失败")
+						logger.debug("失败",err)
 					}
 					callback(result);
 				})
@@ -43,7 +43,7 @@ NOTE=(data,status,callback)=>{
 					if(err){
 						callback(false);
 						return;
-						console.log("失败")
+						logger.debug("失败",err)
 					}
 					callback(result);
 				})							
@@ -62,7 +62,7 @@ NOTE=(data,status,callback)=>{
 					if(err){
 						callback(false);
 						return;
-						console.log("失败")
+						logger.debug("失败",err)
 					}
 					callback(result);
 				})							

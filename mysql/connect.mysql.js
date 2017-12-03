@@ -7,7 +7,7 @@ connection.connect((err)=>{
 	if(err){
 		return console.error('error'+err.message);
 	}
-	console.log("connection success");
+	logger.debug("connection success");
 });
 
 //正则验证
@@ -31,9 +31,9 @@ connection.query(sql,data,(err,results,fields)=>{
 
  connection.end((err)=>{
  	if (err) {
-    return console.log('error:' + err.message);
+    return logger.debug('error:' + err.message);
   }
-  console.log('Close the database connection.');
+  logger.debug('Close the database connection.');
  });//关闭数据库
 
 }

@@ -1,5 +1,6 @@
+var  logger = require('../log4')
 DO = (data,status,callback)=>{
-	console.log("DO")
+	logger.debug("DO")
 	const mysql = require('mysql');
 	const config = require('./config');
 	if(data.flash!="undefined"){
@@ -44,7 +45,7 @@ DO = (data,status,callback)=>{
 										 return  console.error("error2"+err.message);
 									}
 									connection.end(function(){
-										console.log("do --connection.end")
+										logger.debug("do --connection.end")
 									});
 									// console.log(results[0].id);
 									callback(results[0].id);
@@ -72,7 +73,7 @@ DO = (data,status,callback)=>{
 							 return  console.error("error3"+err.message);
 						}
 						connection.end(function(){
-							console.log("do --connection.end")
+							logger.debug("do --connection.end")
 						});
 						// console.log("select success",results);
 						callback(results);
@@ -84,13 +85,7 @@ DO = (data,status,callback)=>{
 			//update
 			if(status=='update'){
 				var statusId=1;
-				//先查找相关电影的id 根据 title doctor
-				// var selectSql = `select id from imooc where title = "${data.title}" and doctor = "${data.doctor}"`;
-					// connection.query(selectSql,(err,results,fields)=>{
-					// 	if(err){
-					// 		 return  console.error("error0"+err.message);
-					// 	}
-					// console.log("==select success========",results,results[0].id);
+
 					statusId = data.id;
 					var newTime = new Date();
 					var newTime= newTime.toLocaleDateString().replace(/\//g, "-") + " " + newTime.toTimeString().substr(0, 8)
@@ -101,12 +96,12 @@ DO = (data,status,callback)=>{
 							 return  console.error("error5"+err.message);
 						}
 						connection.end(function(){
-							console.log("do --connection.end")
+							logger.debug("do --connection.end")
 						});
-						// console.log("update success",statusId,results);
+
 						callback(statusId)
 					})
-				// })
+
 				
 				
 			}
@@ -115,16 +110,12 @@ DO = (data,status,callback)=>{
 
 				const deleteSql = `delete from imooc where id=${data.id}`;
 
-				// console.log(deleteSql,data.id)
-
-				// console.log(deleteSql)
-
 				connection.query(deleteSql,(err,results,fields)=>{
 						if(err){
 							 return  console.error("error"+err.message);
 						}
 						connection.end(function(){
-							console.log("do --connection.end")
+							logger.debug("do --connection.end")
 						});
 						// console.log("delete success");
 						callback(true)
@@ -142,15 +133,14 @@ DO = (data,status,callback)=>{
 							 return  console.error("error"+err.message);
 						}
 						connection.end(function(){
-							console.log("do --connection.end")
+							logger.debug("do --connection.end")
 						});
 						// console.log(results);
 						callback(results)
 					})
 				
 			}
-
-			// connection.end(()=>console.log("connection.end"));		
+		
 	})
 
 }
