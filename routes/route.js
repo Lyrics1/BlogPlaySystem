@@ -7,16 +7,19 @@ const User = require('./user');
 const Movie = require('./movie');
 const Index = require('./index');
 const Note = require('./note');
+const Chat =require('./chat')
 var  logger = require('../log4')
 
 
 
-module.exports =function(app) {
+
+
+module.exports =function(app,io) {
 	//设置持久化会话
 app.use("*",function(req,res,next){
 	if(req.session.username){
 		app.locals.user = req.session.username;
-		app.locals.userImg =`../${req.session.userImg}`;
+	    app.locals.userImg =`../${req.session.userImg}`;
 		app.locals.sex = req.session.sex;
 		app.locals.tempNoteTitle = req.session.tempNoteTitle
 		app.locals.tempNotes = req.session.tempNotes 
@@ -120,6 +123,22 @@ app.get('/delnoteSession',Note.delnoteSession)
 
 //查看所有用户的博客(对其他人可见的),包括上一页下一页
 app.get('/allnotes/:id',Note.allnotes)
+
+//chat
+app.get('/chat/:id',Chat.chat);
+
+
+
+
+	io.on('connection',function(socket){
+
+	socket.on('message',function(data){
+	console.log(data)
+		io.emit('message',data)
+	})
+})
+
+
 
 
 }

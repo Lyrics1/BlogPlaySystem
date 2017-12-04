@@ -10,6 +10,7 @@ const session = require('express-session');
 const port = process.env.PORT || 3300
 const app = express();
 
+
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
@@ -36,6 +37,10 @@ app.use(function(req,res,next){
 	next()
 })
 
+
+
+
+
 //设置session
 app.use(cookieParser())
 var FileStore = require('session-file-store')(session);//每次都会生成一个session 文件
@@ -60,7 +65,7 @@ if("development" === app.get("env")){//开发环境
 	// app.use(app.router);
 }
 
-require('./routes/route')(app)
+require('./routes/route')(app,io)
 //设置静态路由
 app.use(express.static(path.join(__dirname,"views/includes")));
 server.listen(port);

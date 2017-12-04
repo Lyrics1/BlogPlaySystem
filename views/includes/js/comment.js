@@ -1,6 +1,48 @@
 window.onload = function(){
 
 	const port="3300";
+	/*** chat ***/
+	var socket = io(`//localhost:${port}`);
+	$('.chatsubmit').click(function(){
+		sendSocket();
+	});
+
+	function sendSocket(){
+		var sendContent = $('.chatsend').val();
+		console.log(sendContent);
+		var img = $('.owner img').attr('src');
+		var name = $('.owner img').attr('alt');
+
+		var data = {
+			message:sendContent,
+			img:img,
+			name:name
+		}
+		if(sendContent.length!=0){
+			console.log(data)
+		socket.emit('message',data);
+		$('.chatsend').val("");
+	}else{
+		$('.chatsend').val("");
+	}
+		
+	}
+	socket.on('message',function(data){
+		var T = data.name;
+		var name=(T.match(/\,[\u4e00-\u9fa5]+$/))[0].substr(1);
+			// var name=((data.name).match(/\,[\u4e00-\u9fa5]+$/))
+			console.log(data.name,name)
+
+			$('.chatPlace').append(`<p class="chat-img"><span>${name}<img src="${data.img}" alt="${data.name}" class="img-circle Fuser chatimg"/></span><input class="btn btn-default" type="submit" value="${data.message}"></p>`)
+	})
+
+
+    
+
+
+
+
+
 
 	//blog
 	/****look****/

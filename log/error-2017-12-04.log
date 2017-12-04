@@ -1,0 +1,506 @@
+[2017-12-04T15:41:59.921] [DEBUG] default - Some debug messages
+[2017-12-04T15:42:00.055] [DEBUG] default - port 3300
+[2017-12-04T15:42:14.456] [DEBUG] default - DO
+[2017-12-04T15:42:16.179] [DEBUG] default - do --connection.end
+[2017-12-04T15:42:31.681] [DEBUG] default - routes signin
+[2017-12-04T15:42:31.682] [DEBUG] default - SIGN
+[2017-12-04T15:42:31.685] [DEBUG] default - connection success
+[2017-12-04T15:42:31.762] [DEBUG] default - connection.end
+[2017-12-04T15:42:31.820] [DEBUG] default - DO
+[2017-12-04T15:42:32.051] [DEBUG] default - do --connection.end
+[2017-12-04T15:42:35.791] [DEBUG] default - routes info
+[2017-12-04T15:42:35.792] [DEBUG] default - SIGN
+[2017-12-04T15:42:35.793] [DEBUG] default - connection success
+[2017-12-04T15:42:36.011] [DEBUG] default - connection.end
+[2017-12-04T15:42:39.690] [DEBUG] default - routes info
+[2017-12-04T15:42:39.690] [DEBUG] default - SIGN
+[2017-12-04T15:42:39.692] [DEBUG] default - connection success
+[2017-12-04T15:42:39.861] [DEBUG] default - connection.end
+[2017-12-04T15:42:41.410] [DEBUG] default - DO
+[2017-12-04T15:42:41.542] [DEBUG] default - do --connection.end
+[2017-12-04T15:42:42.316] [DEBUG] default - routes detail
+[2017-12-04T15:42:42.316] [DEBUG] default - DO
+[2017-12-04T15:42:42.329] [DEBUG] default - COMMENT
+[2017-12-04T15:42:42.331] [DEBUG] default - do --connection.end
+[2017-12-04T15:42:42.333] [DEBUG] default - connection success
+[2017-12-04T15:42:42.616] [DEBUG] default - connection.end
+[2017-12-04T15:42:44.113] [DEBUG] default - routes anotherInfo
+[2017-12-04T15:42:44.136] [DEBUG] default - SIGN
+[2017-12-04T15:42:44.140] [DEBUG] default - connection success
+[2017-12-04T15:42:44.276] [DEBUG] default - connection.end
+[2017-12-04T15:42:44.278] [DEBUG] default - routes info
+[2017-12-04T15:42:44.278] [DEBUG] default - SIGN
+[2017-12-04T15:42:44.280] [DEBUG] default - connection success
+[2017-12-04T15:42:44.385] [DEBUG] default - connection.end
+[2017-12-04T15:42:46.193] [DEBUG] default - DO
+[2017-12-04T15:42:46.305] [DEBUG] default - do --connection.end
+[2017-12-04T15:42:48.243] [DEBUG] default - routes detail
+[2017-12-04T15:42:48.243] [DEBUG] default - DO
+[2017-12-04T15:42:48.246] [DEBUG] default - COMMENT
+[2017-12-04T15:42:48.247] [DEBUG] default - do --connection.end
+[2017-12-04T15:42:48.249] [DEBUG] default - connection success
+[2017-12-04T15:42:48.380] [DEBUG] default - connection.end
+[2017-12-04T15:42:52.849] [DEBUG] default - routes anotherInfo
+[2017-12-04T15:42:52.850] [DEBUG] default - SIGN
+[2017-12-04T15:42:52.852] [DEBUG] default - connection success
+[2017-12-04T15:42:52.932] [DEBUG] default - connection.end
+[2017-12-04T15:43:54.939] [DEBUG] default - routes anotherInfo
+[2017-12-04T15:43:54.939] [DEBUG] default - SIGN
+[2017-12-04T15:43:54.943] [DEBUG] default - connection success
+[2017-12-04T15:43:55.271] [DEBUG] default - connection.end
+[2017-12-04T15:43:55.797] [DEBUG] default - routes anotherInfo
+[2017-12-04T15:43:55.797] [DEBUG] default - SIGN
+[2017-12-04T15:43:55.801] [DEBUG] default - connection success
+[2017-12-04T15:43:55.990] [DEBUG] default - connection.end
+[2017-12-04T15:44:24.346] [DEBUG] default - Some debug messages
+[2017-12-04T15:44:24.479] [DEBUG] default - port 3300
+[2017-12-04T15:44:27.295] [DEBUG] default - routes anotherInfo
+[2017-12-04T15:44:27.296] [DEBUG] default - SIGN
+[2017-12-04T15:44:27.313] [DEBUG] default - connection success
+[2017-12-04T15:44:28.066] [DEBUG] default - connection.end
+[2017-12-04T15:46:44.369] [DEBUG] default - routes anotherInfo
+[2017-12-04T15:46:44.370] [DEBUG] default - SIGN
+[2017-12-04T15:46:44.374] [DEBUG] default - connection success
+[2017-12-04T15:46:44.664] [DEBUG] default - connection.end
+[2017-12-04T15:48:44.531] [DEBUG] default - Some debug messages
+[2017-12-04T15:48:44.664] [DEBUG] default - port 3300
+[2017-12-04T15:48:46.509] [DEBUG] default - routes anotherInfo
+[2017-12-04T15:48:46.510] [DEBUG] default - SIGN
+[2017-12-04T15:48:46.527] [DEBUG] default - connection success
+[2017-12-04T15:48:47.210] [DEBUG] default - connection.end
+[2017-12-04T15:49:08.765] [DEBUG] default - Some debug messages
+[2017-12-04T15:49:08.898] [DEBUG] default - port 3300
+[2017-12-04T15:49:12.086] [DEBUG] default - Some debug messages
+[2017-12-04T15:49:12.217] [DEBUG] default - port 3300
+[2017-12-04T15:49:14.785] [DEBUG] default - routes anotherInfo
+[2017-12-04T15:49:14.787] [DEBUG] default - SIGN
+[2017-12-04T15:49:14.803] [DEBUG] default - connection success
+[2017-12-04T15:49:15.551] [DEBUG] default - connection.end
+[2017-12-04T15:50:07.245] [DEBUG] default - Some debug messages
+[2017-12-04T15:50:07.376] [DEBUG] default - port 3300
+[2017-12-04T15:50:53.118] [DEBUG] default - DO
+[2017-12-04T15:50:53.349] [DEBUG] default - do --connection.end
+[2017-12-04T15:50:58.279] [DEBUG] default - routes info
+[2017-12-04T15:51:03.023] [DEBUG] default - routes info
+[2017-12-04T15:51:09.857] [DEBUG] default - routes info
+[2017-12-04T15:51:09.858] [DEBUG] default - SIGN
+[2017-12-04T15:51:09.862] [DEBUG] default - connection success
+[2017-12-04T15:51:10.144] [DEBUG] default - connection.end
+[2017-12-04T15:51:16.151] [DEBUG] default - DO
+[2017-12-04T15:51:16.283] [DEBUG] default - do --connection.end
+[2017-12-04T15:51:17.156] [DEBUG] default - routes detail
+[2017-12-04T15:51:17.156] [DEBUG] default - DO
+[2017-12-04T15:51:17.160] [DEBUG] default - COMMENT
+[2017-12-04T15:51:17.161] [DEBUG] default - do --connection.end
+[2017-12-04T15:51:17.163] [DEBUG] default - connection success
+[2017-12-04T15:51:17.352] [DEBUG] default - connection.end
+[2017-12-04T15:51:24.411] [DEBUG] default - routes anotherInfo
+[2017-12-04T15:51:24.411] [DEBUG] default - SIGN
+[2017-12-04T15:51:24.414] [DEBUG] default - connection success
+[2017-12-04T15:51:24.514] [DEBUG] default - connection.end
+[2017-12-04T15:51:26.622] [DEBUG] default - routes info
+[2017-12-04T15:51:35.175] [DEBUG] default - routes anotherInfo
+[2017-12-04T15:51:35.176] [DEBUG] default - SIGN
+[2017-12-04T15:51:35.178] [DEBUG] default - connection success
+[2017-12-04T15:51:35.284] [DEBUG] default - connection.end
+[2017-12-04T15:51:38.161] [DEBUG] default - routes info
+[2017-12-04T15:51:41.762] [DEBUG] default - routes allnotes
+[2017-12-04T15:51:41.763] [DEBUG] default - NOTE
+[2017-12-04T15:51:41.768] [DEBUG] default - select * from note where  type != 3 limit  0 ,8 )) undefined
+[2017-12-04T15:51:43.537] [DEBUG] default - routes look
+[2017-12-04T15:51:43.538] [DEBUG] default - NOTE
+[2017-12-04T15:51:59.487] [DEBUG] default - routes allnotes
+[2017-12-04T15:51:59.488] [DEBUG] default - NOTE
+[2017-12-04T15:51:59.490] [DEBUG] default - select * from note where type !=3 limit 0 ,8 union select * from note where userID=2 limit 0 ,8 )) 2
+[2017-12-04T15:52:00.792] [DEBUG] default - routes look
+[2017-12-04T15:52:00.793] [DEBUG] default - NOTE
+[2017-12-04T15:52:08.079] [DEBUG] default - routes look
+[2017-12-04T15:52:08.079] [DEBUG] default - NOTE
+[2017-12-04T15:52:13.634] [DEBUG] default - routes look
+[2017-12-04T15:52:13.635] [DEBUG] default - NOTE
+[2017-12-04T15:52:16.983] [DEBUG] default - routes look
+[2017-12-04T15:52:16.983] [DEBUG] default - NOTE
+[2017-12-04T15:52:20.008] [DEBUG] default - routes allnotes
+[2017-12-04T15:52:20.008] [DEBUG] default - NOTE
+[2017-12-04T15:52:20.009] [DEBUG] default - select * from note where type !=3 limit 8 ,16 union select * from note where userID=2 limit 8 ,16 )) 2
+[2017-12-04T15:52:20.148] [DEBUG] default - routes allnotes
+[2017-12-04T15:52:20.148] [DEBUG] default - NOTE
+[2017-12-04T15:52:20.150] [DEBUG] default - select * from note where type !=3 limit 8 ,16 union select * from note where userID=2 limit 8 ,16 )) 2
+[2017-12-04T15:52:21.587] [DEBUG] default - routes look
+[2017-12-04T15:52:21.587] [DEBUG] default - NOTE
+[2017-12-04T15:52:25.993] [DEBUG] default - routes look
+[2017-12-04T15:52:25.993] [DEBUG] default - NOTE
+[2017-12-04T15:52:54.325] [DEBUG] default - routes info
+[2017-12-04T15:53:04.103] [DEBUG] default - routes info
+[2017-12-04T15:53:04.103] [DEBUG] default - SIGN
+[2017-12-04T15:53:04.106] [DEBUG] default - connection success
+[2017-12-04T15:53:04.221] [DEBUG] default - connection.end
+[2017-12-04T15:53:26.513] [DEBUG] default - loginout
+[2017-12-04T15:53:26.525] [DEBUG] default - DO
+[2017-12-04T15:53:26.653] [DEBUG] default - do --connection.end
+[2017-12-04T15:53:36.071] [DEBUG] default - loginout
+[2017-12-04T15:53:36.082] [DEBUG] default - DO
+[2017-12-04T15:53:36.177] [DEBUG] default - do --connection.end
+[2017-12-04T15:53:48.816] [DEBUG] default - routes signin
+[2017-12-04T15:53:48.817] [DEBUG] default - SIGN
+[2017-12-04T15:53:48.819] [DEBUG] default - connection success
+[2017-12-04T15:53:48.822] [DEBUG] default - connection.end
+[2017-12-04T15:53:48.855] [DEBUG] default - DO
+[2017-12-04T15:53:48.965] [DEBUG] default - do --connection.end
+[2017-12-04T15:53:58.082] [DEBUG] default - routes signin
+[2017-12-04T15:53:58.084] [DEBUG] default - SIGN
+[2017-12-04T15:53:58.087] [DEBUG] default - connection success
+[2017-12-04T15:53:58.091] [DEBUG] default - connection.end
+[2017-12-04T15:53:58.122] [DEBUG] default - DO
+[2017-12-04T15:53:58.389] [DEBUG] default - do --connection.end
+[2017-12-04T15:54:01.843] [DEBUG] default - routes info
+[2017-12-04T15:54:01.844] [DEBUG] default - SIGN
+[2017-12-04T15:54:01.846] [DEBUG] default - connection success
+[2017-12-04T15:54:02.074] [DEBUG] default - connection.end
+[2017-12-04T15:54:17.438] [DEBUG] default - routes signin
+[2017-12-04T15:54:17.439] [DEBUG] default - SIGN
+[2017-12-04T15:54:17.443] [DEBUG] default - connection success
+[2017-12-04T15:54:17.449] [DEBUG] default - connection.end
+[2017-12-04T15:54:17.479] [DEBUG] default - DO
+[2017-12-04T15:54:17.761] [DEBUG] default - do --connection.end
+[2017-12-04T15:54:18.893] [DEBUG] default - routes info
+[2017-12-04T15:54:18.893] [DEBUG] default - SIGN
+[2017-12-04T15:54:18.895] [DEBUG] default - connection success
+[2017-12-04T15:54:19.127] [DEBUG] default - connection.end
+[2017-12-04T15:54:25.602] [DEBUG] default - routes updateinfo
+[2017-12-04T15:54:25.604] [DEBUG] default - SIGN
+[2017-12-04T15:54:25.608] [DEBUG] default - connection success
+[2017-12-04T15:54:25.682] [DEBUG] default - connection.end
+[2017-12-04T15:54:25.693] [DEBUG] default - routes info
+[2017-12-04T15:54:25.694] [DEBUG] default - SIGN
+[2017-12-04T15:54:25.696] [DEBUG] default - connection success
+[2017-12-04T15:54:25.854] [DEBUG] default - connection.end
+[2017-12-04T15:54:29.911] [DEBUG] default - routes info
+[2017-12-04T15:54:29.911] [DEBUG] default - SIGN
+[2017-12-04T15:54:29.913] [DEBUG] default - connection success
+[2017-12-04T15:54:30.041] [DEBUG] default - connection.end
+[2017-12-04T15:54:38.158] [DEBUG] default - routes info
+[2017-12-04T15:54:38.159] [DEBUG] default - SIGN
+[2017-12-04T15:54:38.161] [DEBUG] default - connection success
+[2017-12-04T15:54:38.286] [DEBUG] default - connection.end
+[2017-12-04T15:54:39.815] [DEBUG] default - DO
+[2017-12-04T15:54:39.914] [DEBUG] default - do --connection.end
+[2017-12-04T15:54:41.076] [DEBUG] default - routes detail
+[2017-12-04T15:54:41.077] [DEBUG] default - DO
+[2017-12-04T15:54:41.081] [DEBUG] default - COMMENT
+[2017-12-04T15:54:41.083] [DEBUG] default - do --connection.end
+[2017-12-04T15:54:41.084] [DEBUG] default - connection success
+[2017-12-04T15:54:41.244] [DEBUG] default - connection.end
+[2017-12-04T15:54:43.361] [DEBUG] default - routes anotherInfo
+[2017-12-04T15:54:43.361] [DEBUG] default - SIGN
+[2017-12-04T15:54:43.363] [DEBUG] default - connection success
+[2017-12-04T15:54:43.456] [DEBUG] default - connection.end
+[2017-12-04T15:54:54.847] [DEBUG] default - DO
+[2017-12-04T15:54:54.938] [DEBUG] default - do --connection.end
+[2017-12-04T15:54:55.741] [DEBUG] default - routes detail
+[2017-12-04T15:54:55.741] [DEBUG] default - DO
+[2017-12-04T15:54:55.744] [DEBUG] default - COMMENT
+[2017-12-04T15:54:55.747] [DEBUG] default - do --connection.end
+[2017-12-04T15:54:55.751] [DEBUG] default - connection success
+[2017-12-04T15:54:55.891] [DEBUG] default - connection.end
+[2017-12-04T15:54:59.132] [DEBUG] default - routes anotherInfo
+[2017-12-04T15:54:59.132] [DEBUG] default - SIGN
+[2017-12-04T15:54:59.134] [DEBUG] default - connection success
+[2017-12-04T15:54:59.207] [DEBUG] default - connection.end
+[2017-12-04T15:55:05.320] [DEBUG] default - loginout
+[2017-12-04T15:55:05.330] [DEBUG] default - DO
+[2017-12-04T15:55:05.600] [DEBUG] default - do --connection.end
+[2017-12-04T15:55:08.249] [DEBUG] default - routes signin
+[2017-12-04T15:55:08.250] [DEBUG] default - SIGN
+[2017-12-04T15:55:08.253] [DEBUG] default - connection success
+[2017-12-04T15:55:08.255] [DEBUG] default - connection.end
+[2017-12-04T15:55:08.275] [DEBUG] default - DO
+[2017-12-04T15:55:08.493] [DEBUG] default - do --connection.end
+[2017-12-04T15:55:14.799] [DEBUG] default - routes detail
+[2017-12-04T15:55:14.800] [DEBUG] default - DO
+[2017-12-04T15:55:14.805] [DEBUG] default - COMMENT
+[2017-12-04T15:55:14.807] [DEBUG] default - do --connection.end
+[2017-12-04T15:55:14.808] [DEBUG] default - connection success
+[2017-12-04T15:55:15.234] [DEBUG] default - connection.end
+[2017-12-04T15:55:17.326] [DEBUG] default - routes anotherInfo
+[2017-12-04T15:55:17.327] [DEBUG] default - SIGN
+[2017-12-04T15:55:17.328] [DEBUG] default - connection success
+[2017-12-04T15:55:17.504] [DEBUG] default - connection.end
+[2017-12-04T15:55:25.815] [DEBUG] default - Some debug messages
+[2017-12-04T15:55:25.950] [DEBUG] default - port 3300
+[2017-12-04T15:55:29.501] [DEBUG] default - Some debug messages
+[2017-12-04T15:55:29.632] [DEBUG] default - port 3300
+[2017-12-04T16:15:04.909] [DEBUG] default - routes info
+[2017-12-04T16:15:04.910] [DEBUG] default - SIGN
+[2017-12-04T16:15:04.935] [DEBUG] default - connection success
+[2017-12-04T16:15:05.171] [DEBUG] default - connection.end
+[2017-12-04T16:15:08.510] [DEBUG] default - DO
+[2017-12-04T16:15:08.684] [DEBUG] default - do --connection.end
+[2017-12-04T16:15:09.677] [DEBUG] default - routes detail
+[2017-12-04T16:15:09.677] [DEBUG] default - DO
+[2017-12-04T16:15:09.682] [DEBUG] default - COMMENT
+[2017-12-04T16:15:09.683] [DEBUG] default - do --connection.end
+[2017-12-04T16:15:09.685] [DEBUG] default - connection success
+[2017-12-04T16:15:09.965] [DEBUG] default - connection.end
+[2017-12-04T16:15:12.709] [DEBUG] default - routes anotherInfo
+[2017-12-04T16:15:12.709] [DEBUG] default - SIGN
+[2017-12-04T16:15:12.712] [DEBUG] default - connection success
+[2017-12-04T16:15:12.843] [DEBUG] default - connection.end
+[2017-12-04T16:15:45.078] [DEBUG] default - Some debug messages
+[2017-12-04T16:15:45.237] [DEBUG] default - port 3300
+[2017-12-04T16:42:21.575] [DEBUG] default - Some debug messages
+[2017-12-04T16:42:21.716] [DEBUG] default - port 3300
+[2017-12-04T16:44:16.217] [DEBUG] default - Some debug messages
+[2017-12-04T16:44:16.352] [DEBUG] default - port 3300
+[2017-12-04T16:46:11.008] [DEBUG] default - Some debug messages
+[2017-12-04T16:46:11.138] [DEBUG] default - port 3300
+[2017-12-04T16:47:01.979] [DEBUG] default - DO
+[2017-12-04T16:47:02.261] [DEBUG] default - do --connection.end
+[2017-12-04T16:47:03.446] [DEBUG] default - routes detail
+[2017-12-04T16:47:03.446] [DEBUG] default - DO
+[2017-12-04T16:47:03.452] [DEBUG] default - COMMENT
+[2017-12-04T16:47:03.454] [DEBUG] default - do --connection.end
+[2017-12-04T16:47:03.456] [DEBUG] default - connection success
+[2017-12-04T16:47:03.762] [DEBUG] default - connection.end
+[2017-12-04T16:47:05.224] [DEBUG] default - routes anotherInfo
+[2017-12-04T16:47:05.225] [DEBUG] default - SIGN
+[2017-12-04T16:47:05.227] [DEBUG] default - connection success
+[2017-12-04T16:47:05.345] [DEBUG] default - connection.end
+[2017-12-04T16:58:14.630] [DEBUG] default - Some debug messages
+[2017-12-04T16:58:14.767] [DEBUG] default - port 3300
+[2017-12-04T17:01:10.700] [DEBUG] default - Some debug messages
+[2017-12-04T17:01:10.838] [DEBUG] default - port 3300
+[2017-12-04T17:01:48.574] [DEBUG] default - Some debug messages
+[2017-12-04T17:01:48.709] [DEBUG] default - port 3300
+[2017-12-04T17:08:30.049] [DEBUG] default - Some debug messages
+[2017-12-04T17:08:30.186] [DEBUG] default - port 3300
+[2017-12-04T17:11:49.633] [DEBUG] default - Some debug messages
+[2017-12-04T17:11:49.772] [DEBUG] default - port 3300
+[2017-12-04T17:32:05.721] [DEBUG] default - Some debug messages
+[2017-12-04T17:32:05.859] [DEBUG] default - port 3300
+[2017-12-04T17:33:51.745] [DEBUG] default - Some debug messages
+[2017-12-04T17:33:51.881] [DEBUG] default - port 3300
+[2017-12-04T17:39:18.283] [DEBUG] default - Some debug messages
+[2017-12-04T17:39:18.421] [DEBUG] default - port 3300
+[2017-12-04T17:39:58.068] [DEBUG] default - Some debug messages
+[2017-12-04T17:39:58.203] [DEBUG] default - port 3300
+[2017-12-04T17:42:02.278] [DEBUG] default - routes signin
+[2017-12-04T17:42:02.280] [DEBUG] default - SIGN
+[2017-12-04T17:42:02.307] [DEBUG] default - connection success
+[2017-12-04T17:42:02.314] [DEBUG] default - connection.end
+[2017-12-04T17:42:40.176] [DEBUG] default - loginout
+[2017-12-04T17:42:40.216] [DEBUG] default - DO
+[2017-12-04T17:42:40.358] [DEBUG] default - do --connection.end
+[2017-12-04T17:42:44.046] [DEBUG] default - routes signin
+[2017-12-04T17:42:44.047] [DEBUG] default - SIGN
+[2017-12-04T17:42:44.052] [DEBUG] default - connection success
+[2017-12-04T17:42:44.056] [DEBUG] default - connection.end
+[2017-12-04T17:42:44.106] [DEBUG] default - DO
+[2017-12-04T17:42:44.287] [DEBUG] default - do --connection.end
+[2017-12-04T17:42:47.518] [DEBUG] default - routes detail
+[2017-12-04T17:42:47.519] [DEBUG] default - DO
+[2017-12-04T17:42:47.522] [DEBUG] default - COMMENT
+[2017-12-04T17:42:47.524] [DEBUG] default - do --connection.end
+[2017-12-04T17:42:47.527] [DEBUG] default - connection success
+[2017-12-04T17:42:47.719] [DEBUG] default - connection.end
+[2017-12-04T17:42:49.771] [DEBUG] default - routes anotherInfo
+[2017-12-04T17:42:49.772] [DEBUG] default - SIGN
+[2017-12-04T17:42:49.777] [DEBUG] default - connection success
+[2017-12-04T17:42:49.902] [DEBUG] default - connection.end
+[2017-12-04T17:43:51.530] [DEBUG] default - loginout
+[2017-12-04T17:43:51.565] [DEBUG] default - DO
+[2017-12-04T17:43:51.707] [DEBUG] default - do --connection.end
+[2017-12-04T17:43:55.498] [DEBUG] default - routes signin
+[2017-12-04T17:43:55.499] [DEBUG] default - SIGN
+[2017-12-04T17:43:55.501] [DEBUG] default - connection success
+[2017-12-04T17:43:55.505] [DEBUG] default - connection.end
+[2017-12-04T17:43:55.529] [DEBUG] default - DO
+[2017-12-04T17:43:55.669] [DEBUG] default - do --connection.end
+[2017-12-04T17:43:57.570] [DEBUG] default - routes detail
+[2017-12-04T17:43:57.571] [DEBUG] default - DO
+[2017-12-04T17:43:57.574] [DEBUG] default - COMMENT
+[2017-12-04T17:43:57.576] [DEBUG] default - do --connection.end
+[2017-12-04T17:43:57.578] [DEBUG] default - connection success
+[2017-12-04T17:43:57.813] [DEBUG] default - connection.end
+[2017-12-04T17:44:00.200] [DEBUG] default - routes anotherInfo
+[2017-12-04T17:44:00.201] [DEBUG] default - SIGN
+[2017-12-04T17:44:00.203] [DEBUG] default - connection success
+[2017-12-04T17:44:00.295] [DEBUG] default - connection.end
+[2017-12-04T17:44:07.671] [DEBUG] default - loginout
+[2017-12-04T17:44:07.687] [DEBUG] default - DO
+[2017-12-04T17:44:07.774] [DEBUG] default - do --connection.end
+[2017-12-04T17:44:10.450] [DEBUG] default - routes signin
+[2017-12-04T17:44:10.451] [DEBUG] default - SIGN
+[2017-12-04T17:44:10.454] [DEBUG] default - connection success
+[2017-12-04T17:44:10.459] [DEBUG] default - connection.end
+[2017-12-04T17:44:10.510] [DEBUG] default - DO
+[2017-12-04T17:44:10.612] [DEBUG] default - do --connection.end
+[2017-12-04T17:44:12.378] [DEBUG] default - routes detail
+[2017-12-04T17:44:12.379] [DEBUG] default - DO
+[2017-12-04T17:44:12.381] [DEBUG] default - COMMENT
+[2017-12-04T17:44:12.383] [DEBUG] default - do --connection.end
+[2017-12-04T17:44:12.384] [DEBUG] default - connection success
+[2017-12-04T17:44:12.517] [DEBUG] default - connection.end
+[2017-12-04T17:44:14.308] [DEBUG] default - routes anotherInfo
+[2017-12-04T17:44:14.310] [DEBUG] default - SIGN
+[2017-12-04T17:44:14.312] [DEBUG] default - connection success
+[2017-12-04T17:44:14.394] [DEBUG] default - connection.end
+[2017-12-04T17:44:14.411] [DEBUG] default - routes info
+[2017-12-04T17:44:14.411] [DEBUG] default - SIGN
+[2017-12-04T17:44:14.413] [DEBUG] default - connection success
+[2017-12-04T17:44:14.585] [DEBUG] default - connection.end
+[2017-12-04T17:44:16.569] [DEBUG] default - routes info
+[2017-12-04T17:44:16.569] [DEBUG] default - SIGN
+[2017-12-04T17:44:16.572] [DEBUG] default - connection success
+[2017-12-04T17:44:16.668] [DEBUG] default - connection.end
+[2017-12-04T17:44:18.531] [DEBUG] default - DO
+[2017-12-04T17:44:18.612] [DEBUG] default - do --connection.end
+[2017-12-04T17:44:19.732] [DEBUG] default - routes detail
+[2017-12-04T17:44:19.732] [DEBUG] default - DO
+[2017-12-04T17:44:19.737] [DEBUG] default - COMMENT
+[2017-12-04T17:44:19.738] [DEBUG] default - do --connection.end
+[2017-12-04T17:44:19.740] [DEBUG] default - connection success
+[2017-12-04T17:44:19.858] [DEBUG] default - connection.end
+[2017-12-04T17:44:21.602] [DEBUG] default - routes anotherInfo
+[2017-12-04T17:44:21.603] [DEBUG] default - SIGN
+[2017-12-04T17:44:21.605] [DEBUG] default - connection success
+[2017-12-04T17:44:21.676] [DEBUG] default - connection.end
+[2017-12-04T17:45:16.772] [DEBUG] default - routes info
+[2017-12-04T17:45:16.772] [DEBUG] default - SIGN
+[2017-12-04T17:45:16.776] [DEBUG] default - connection success
+[2017-12-04T17:45:17.020] [DEBUG] default - connection.end
+[2017-12-04T17:49:58.698] [DEBUG] default - DO
+[2017-12-04T17:49:58.848] [DEBUG] default - do --connection.end
+[2017-12-04T17:50:00.204] [DEBUG] default - routes detail
+[2017-12-04T17:50:00.205] [DEBUG] default - DO
+[2017-12-04T17:50:00.209] [DEBUG] default - COMMENT
+[2017-12-04T17:50:00.211] [DEBUG] default - do --connection.end
+[2017-12-04T17:50:00.213] [DEBUG] default - connection success
+[2017-12-04T17:50:00.416] [DEBUG] default - connection.end
+[2017-12-04T17:50:02.725] [DEBUG] default - routes anotherInfo
+[2017-12-04T17:50:02.726] [DEBUG] default - SIGN
+[2017-12-04T17:50:02.732] [DEBUG] default - connection success
+[2017-12-04T17:50:02.833] [DEBUG] default - connection.end
+[2017-12-04T17:52:00.796] [DEBUG] default - routes anotherInfo
+[2017-12-04T17:52:00.796] [DEBUG] default - SIGN
+[2017-12-04T17:52:00.799] [DEBUG] default - connection success
+[2017-12-04T17:52:00.923] [DEBUG] default - connection.end
+[2017-12-04T17:52:38.972] [DEBUG] default - routes anotherInfo
+[2017-12-04T17:52:38.972] [DEBUG] default - SIGN
+[2017-12-04T17:52:38.974] [DEBUG] default - connection success
+[2017-12-04T17:52:39.084] [DEBUG] default - connection.end
+[2017-12-04T17:56:16.769] [DEBUG] default - routes anotherInfo
+[2017-12-04T17:56:16.770] [DEBUG] default - SIGN
+[2017-12-04T17:56:16.774] [DEBUG] default - connection success
+[2017-12-04T17:56:22.932] [DEBUG] default - Some debug messages
+[2017-12-04T17:56:23.068] [DEBUG] default - port 3300
+[2017-12-04T17:58:03.242] [DEBUG] default - Some debug messages
+[2017-12-04T17:58:03.380] [DEBUG] default - port 3300
+[2017-12-04T17:58:11.885] [DEBUG] default - DO
+[2017-12-04T17:58:12.537] [DEBUG] default - do --connection.end
+[2017-12-04T17:58:13.814] [DEBUG] default - routes detail
+[2017-12-04T17:58:13.815] [DEBUG] default - DO
+[2017-12-04T17:58:13.820] [DEBUG] default - COMMENT
+[2017-12-04T17:58:13.821] [DEBUG] default - do --connection.end
+[2017-12-04T17:58:13.823] [DEBUG] default - connection success
+[2017-12-04T17:58:14.115] [DEBUG] default - connection.end
+[2017-12-04T17:58:16.641] [DEBUG] default - routes anotherInfo
+[2017-12-04T17:58:16.642] [DEBUG] default - SIGN
+[2017-12-04T17:58:16.644] [DEBUG] default - connection success
+[2017-12-04T17:58:16.788] [DEBUG] default - connection.end
+[2017-12-04T17:58:22.130] [DEBUG] default - routes anotherInfo
+[2017-12-04T17:58:22.145] [DEBUG] default - SIGN
+[2017-12-04T17:58:22.148] [DEBUG] default - connection success
+[2017-12-04T17:58:58.014] [DEBUG] default - Some debug messages
+[2017-12-04T17:58:58.154] [DEBUG] default - port 3300
+[2017-12-04T17:59:00.029] [DEBUG] default - routes info
+[2017-12-04T17:59:00.030] [DEBUG] default - SIGN
+[2017-12-04T17:59:00.045] [DEBUG] default - connection success
+[2017-12-04T17:59:00.692] [DEBUG] default - connection.end
+[2017-12-04T17:59:09.782] [DEBUG] default - DO
+[2017-12-04T17:59:10.084] [DEBUG] default - do --connection.end
+[2017-12-04T17:59:10.889] [DEBUG] default - routes detail
+[2017-12-04T17:59:10.890] [DEBUG] default - DO
+[2017-12-04T17:59:10.894] [DEBUG] default - COMMENT
+[2017-12-04T17:59:10.896] [DEBUG] default - do --connection.end
+[2017-12-04T17:59:10.898] [DEBUG] default - connection success
+[2017-12-04T17:59:11.159] [DEBUG] default - connection.end
+[2017-12-04T17:59:13.242] [DEBUG] default - routes anotherInfo
+[2017-12-04T17:59:13.242] [DEBUG] default - SIGN
+[2017-12-04T17:59:13.245] [DEBUG] default - connection success
+[2017-12-04T17:59:13.381] [DEBUG] default - connection.end
+[2017-12-04T17:59:20.073] [DEBUG] default - routes anotherInfo
+[2017-12-04T17:59:20.082] [DEBUG] default - SIGN
+[2017-12-04T17:59:20.087] [DEBUG] default - connection success
+[2017-12-04T18:00:17.748] [DEBUG] default - Some debug messages
+[2017-12-04T18:00:17.887] [DEBUG] default - port 3300
+[2017-12-04T18:00:22.608] [DEBUG] default - routes info
+[2017-12-04T18:00:22.610] [DEBUG] default - SIGN
+[2017-12-04T18:00:22.626] [DEBUG] default - connection success
+[2017-12-04T18:00:23.382] [DEBUG] default - connection.end
+[2017-12-04T18:00:24.553] [DEBUG] default - DO
+[2017-12-04T18:00:24.751] [DEBUG] default - do --connection.end
+[2017-12-04T18:00:25.835] [DEBUG] default - routes detail
+[2017-12-04T18:00:25.835] [DEBUG] default - DO
+[2017-12-04T18:00:25.839] [DEBUG] default - COMMENT
+[2017-12-04T18:00:25.841] [DEBUG] default - do --connection.end
+[2017-12-04T18:00:25.843] [DEBUG] default - connection success
+[2017-12-04T18:00:26.136] [DEBUG] default - connection.end
+[2017-12-04T18:00:27.568] [DEBUG] default - routes anotherInfo
+[2017-12-04T18:00:27.574] [DEBUG] default - SIGN
+[2017-12-04T18:00:27.576] [DEBUG] default - connection success
+[2017-12-04T18:00:27.747] [DEBUG] default - connection.end
+[2017-12-04T18:00:27.785] [DEBUG] default - routes info
+[2017-12-04T18:00:27.786] [DEBUG] default - SIGN
+[2017-12-04T18:00:27.789] [DEBUG] default - connection success
+[2017-12-04T18:00:27.930] [DEBUG] default - connection.end
+[2017-12-04T18:00:30.410] [DEBUG] default - DO
+[2017-12-04T18:00:30.507] [DEBUG] default - do --connection.end
+[2017-12-04T18:00:31.598] [DEBUG] default - routes detail
+[2017-12-04T18:00:31.598] [DEBUG] default - DO
+[2017-12-04T18:00:31.601] [DEBUG] default - COMMENT
+[2017-12-04T18:00:31.602] [DEBUG] default - do --connection.end
+[2017-12-04T18:00:31.603] [DEBUG] default - connection success
+[2017-12-04T18:00:31.756] [DEBUG] default - connection.end
+[2017-12-04T18:00:33.290] [DEBUG] default - routes anotherInfo
+[2017-12-04T18:00:33.291] [DEBUG] default - SIGN
+[2017-12-04T18:00:33.293] [DEBUG] default - connection success
+[2017-12-04T18:00:33.364] [DEBUG] default - connection.end
+[2017-12-04T18:00:39.689] [DEBUG] default - routes anotherInfo
+[2017-12-04T18:00:39.691] [DEBUG] default - SIGN
+[2017-12-04T18:00:39.695] [DEBUG] default - connection success
+[2017-12-04T18:02:24.951] [DEBUG] default - Some debug messages
+[2017-12-04T18:02:25.110] [DEBUG] default - port 3300
+[2017-12-04T18:02:28.860] [DEBUG] default - routes info
+[2017-12-04T18:02:28.861] [DEBUG] default - SIGN
+[2017-12-04T18:02:28.872] [DEBUG] default - connection success
+[2017-12-04T18:02:29.529] [DEBUG] default - connection.end
+[2017-12-04T18:02:30.514] [DEBUG] default - DO
+[2017-12-04T18:02:30.709] [DEBUG] default - do --connection.end
+[2017-12-04T18:02:31.763] [DEBUG] default - routes detail
+[2017-12-04T18:02:31.764] [DEBUG] default - DO
+[2017-12-04T18:02:31.767] [DEBUG] default - COMMENT
+[2017-12-04T18:02:31.769] [DEBUG] default - do --connection.end
+[2017-12-04T18:02:31.770] [DEBUG] default - connection success
+[2017-12-04T18:02:32.076] [DEBUG] default - connection.end
+[2017-12-04T18:02:34.729] [DEBUG] default - routes anotherInfo
+[2017-12-04T18:02:34.729] [DEBUG] default - SIGN
+[2017-12-04T18:02:34.731] [DEBUG] default - connection success
+[2017-12-04T18:02:34.873] [DEBUG] default - connection.end
+[2017-12-04T18:02:39.999] [DEBUG] default - routes anotherInfo
+[2017-12-04T18:02:40.015] [DEBUG] default - routes info
+[2017-12-04T18:02:40.016] [DEBUG] default - SIGN
+[2017-12-04T18:02:40.020] [DEBUG] default - connection success
+[2017-12-04T18:02:40.132] [DEBUG] default - connection.end
+[2017-12-04T18:30:07.311] [DEBUG] default - DO
+[2017-12-04T18:30:07.471] [DEBUG] default - do --connection.end
+[2017-12-04T18:30:08.487] [DEBUG] default - routes detail
+[2017-12-04T18:30:08.487] [DEBUG] default - DO
+[2017-12-04T18:30:08.490] [DEBUG] default - COMMENT
+[2017-12-04T18:30:08.493] [DEBUG] default - do --connection.end
+[2017-12-04T18:30:08.495] [DEBUG] default - connection success
+[2017-12-04T18:30:08.700] [DEBUG] default - connection.end
+[2017-12-04T18:30:10.472] [DEBUG] default - routes anotherInfo
+[2017-12-04T18:30:10.472] [DEBUG] default - SIGN
+[2017-12-04T18:30:10.475] [DEBUG] default - connection success
+[2017-12-04T18:30:10.587] [DEBUG] default - connection.end

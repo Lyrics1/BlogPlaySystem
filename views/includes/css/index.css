@@ -50,6 +50,24 @@ input[type=radio],select option{
 	margin-top:20px;
 	margin-bottom: 20px
 }
+.chatsubmit{
+	cursor: pointer;
+}
+.chat-img{
+	margin-top:2%;
+
+}
+.chatimg{
+	margin-right: 8px;
+	margin-left: 5px;
+}
+.chatPlace{
+	width:100%;
+	height: 75vh;
+	background-color: #f3eeee;
+    overflow-y:scroll; 
+    padding: 5px 10px 5px 4%;
+}
 .iii label{
 	width:100%;
 

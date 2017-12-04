@@ -51,12 +51,12 @@ NOTE=(data,status,callback)=>{
 		if(status=="allnotes"){
 			var findAllSql;
 			if(data.id!=undefined){
-				 findAllSql =`select * from note where type !=3 union select * from note where userID=${data.id} limit ${data.parper*8} ,${data.parper*8+8}`;
+				 findAllSql =`select * from note where type !=3 limit ${data.parper*8} ,${data.parper*8+8} union select * from note where userID=${data.id} limit ${data.parper*8} ,${data.parper*8+8}`;
 			}else{
 				findAllSql =`select * from note where  type != 3 limit  ${data.parper*8} ,${data.parper*8+8}`;
 			}
 			
-			// console.log(findAllSql,"))",data.id)
+			logger.debug(findAllSql,"))",data.id)
 
 				connect.query(findAllSql,function(err,result){
 					if(err){
@@ -64,6 +64,7 @@ NOTE=(data,status,callback)=>{
 						return;
 						logger.debug("失败",err)
 					}
+
 					callback(result);
 				})							
 		}

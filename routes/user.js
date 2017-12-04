@@ -391,9 +391,22 @@ exports.updateinfo=function(req,res){
 exports.anotherInfo = function(req,res){
 	logger.debug(path.basename(__dirname),"anotherInfo")
 	var data = req.params;
-		if(req.session.userID == data.id){
-			res.redirect('/information')
+	var temp=true;
+		if(!(/^\d$/.test(data.id))){
+			temp=false;
+			res.redirect('/information');
+			console.log("iii");
+			
+
 		}
+		if(req.session.userID == data.id){
+			temp=false;
+			res.redirect('/information')
+
+		}
+		if(temp){
+
+
 		USER.SIGN(data,"anotherInfo",callback=(results)=>{
 			if(results){
 				res.render('another',{
@@ -412,6 +425,7 @@ exports.anotherInfo = function(req,res){
 			
 			
 		})
+	}
 
 }
 //某一部电影的评论全部加载
