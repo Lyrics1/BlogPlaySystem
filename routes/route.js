@@ -17,9 +17,13 @@ var  logger = require('../log4')
 module.exports =function(app,io) {
 	//设置持久化会话
 app.use("*",function(req,res,next){
+	delete app.locals.user ;//如果不删除 app.licals.user 页面是不会改变的
+	delete app.locals.userImg;
+	delete app.locals.tempNoteTitle 
+	delete app.locals.tempNotes 
 	if(req.session.username){
 		app.locals.user = req.session.username;
-	    app.locals.userImg =`../${req.session.userImg}`;
+	        app.locals.userImg =`../${req.session.userImg}`;
 		app.locals.sex = req.session.sex;
 		app.locals.tempNoteTitle = req.session.tempNoteTitle
 		app.locals.tempNotes = req.session.tempNotes 
