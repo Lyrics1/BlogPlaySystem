@@ -133,7 +133,7 @@ app.get('/chat/:id',Chat.chat);
 	io.on('connection',function(socket){
 
 	socket.on('message',function(data){
-	console.log(data)
+	// console.log(data)
 		io.emit('message',data)
 	})
 })
