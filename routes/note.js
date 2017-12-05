@@ -127,7 +127,7 @@ exports.show=(req,res)=>{
 						logger.debug("创建文件失败");
 						res.send("很抱歉 发表失败 ")
 					}
-					fs.writeFileSync(`${dir}/blog/${fileName}/${blogName}`,data,function(err){
+					fs.writeFile(`${dir}/blog/${fileName}/${blogName}`,data,function(err){
 				 	if(err){
 				 		status=false;
 				 		res.send("很抱歉 发表失败 ")
@@ -139,34 +139,36 @@ exports.show=(req,res)=>{
 						userID:req.session.userID,
 						Title:req.body.Title
 				 	}
-					NOTE.NOTE(Data,'add',callback=(results)=>{
-							var REdata= {
-								userID:req.session.userID,
-								notId:results[0].id
-							}
-							res.send(REdata)
-					})
+					if(status){
+						NOTE.NOTE(Data,'add',callback=(results)=>{
+								var REdata= {
+									userID:req.session.userID,
+									notId:results[0].id
+								}
+								res.send(REdata)
+						})
+					}
 
 		
 				 	
 				 })
-					 if(status) {
-					 	//将文件名存储进数据库notes,type,userID
-					 	var Data ={
-							notes:blogName,
-							type:req.body.type,
-							userID:req.session.userID,
-							Title:req.body.Title
-					 	}
-						NOTE.NOTE(Data,'add',callback=(results)=>{
-							var REdata= {
-								userID:req.session.userID,
-								notId:results[0].id
-							}
-							res.send(REdata)
-						})
+// 					 if(status) {
+// 					 	//将文件名存储进数据库notes,type,userID
+// 					 	var Data ={
+// 							notes:blogName,
+// 							type:req.body.type,
+// 							userID:req.session.userID,
+// 							Title:req.body.Title
+// 					 	}
+// 						NOTE.NOTE(Data,'add',callback=(results)=>{
+// 							var REdata= {
+// 								userID:req.session.userID,
+// 								notId:results[0].id
+// 							}
+// 							res.send(REdata)
+// 						})
 				 		
-					}
+// 					}
 						
 				})
 			}
